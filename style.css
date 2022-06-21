@@ -101,3 +101,34 @@ body {
     padding-top: 5px;
     
 }
+
+#ties{
+    
+    font-family: Outfit;
+    font-size: 10px;
+    font-weight: 15px;
+    font: 10px;
+    }
+    
+    .ocpu{
+        background-color: #F2B137;
+        border-radius: 15px;
+        margin: 10px;
+        margin-right: 10px;
+        width: 70px;
+        height: 50px;
+        text-align: center;
+        padding-top: 5px;
+    }
+    
+    #cpu{
+        display: flex;
+        flex-direction: column;
+        padding-top: 5px;
+        font-size: 10px;
+        font-weight: 15px;
+        font: 10px;
+        
+    
+    }
+    
