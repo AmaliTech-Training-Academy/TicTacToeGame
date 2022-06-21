@@ -97,3 +97,48 @@ p {
     margin-bottom: 18px;
     
 }
+
+.new{
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#cpu {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 25px;
+    letter-spacing: 1.25px;
+    text-align: center;
+    margin: 20px;
+    /* padding-left: 100px; */
+    height: 67px;
+    width: 450px;
+    border-radius: 15px;
+    color: #1A2A33;
+    background-color: #F2B137;
+    Offset: 0px, -8px #CC8B13;
+    box-shadow: 0px -8px 0px 0px #CC8B13 inset;
+
+
+}
+
+#player { 
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 25px;
+    letter-spacing: 1.25px;
+    text-align: center;
+    margin: 20px;
+    
+    height: 67px;
+    width: 460px;
+    border-radius: 15px;
+    color: #1A2A33;
+    background-color: #31C3BD;
+    Offset: 0px, -8px #118C87;
+    box-shadow: 0px -8px 0px 0px #118C87 inset;
+    
+}
+
