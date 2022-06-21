@@ -23,3 +23,29 @@ body {
     align-self: center;
     padding: 5rem;
 }
+
+
+.header, .footer{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+#x img{
+    height: 10px;
+}
+
+#turn{
+    color: #A8BFC9;
+    /* letter-spacing: 0.5px; */
+    
+}
+
+.xo {
+    padding-top: 21px;
+    background: #1F3641;
+    border-radius: 15px;
+    padding-left: 9px;
+    margin-bottom: 20px;
+
+}
