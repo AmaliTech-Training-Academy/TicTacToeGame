@@ -49,3 +49,31 @@ body {
     margin-bottom: 20px;
 
 }
+
+#XO {
+    height: 20px;
+}
+
+.turn{
+    
+    background: #1F3641;
+    border-radius: 15px;
+    align-self: center;
+    padding: 20px;
+    margin-bottom: 20px;
+    
+}
+
+/* .return {
+    height: 40px;
+} */
+
+.you {
+    background: #31C3BD;
+    border-radius: 15px;
+    margin: 10px;
+    margin-right: 20px;
+    width: 70px;
+    height: 50px;
+    text-align: center;
+}
