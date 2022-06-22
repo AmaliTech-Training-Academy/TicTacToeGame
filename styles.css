@@ -141,4 +141,18 @@ p {
     box-shadow: 0px -8px 0px 0px #118C87 inset;
     
 }
+/* Hover  start*/
+#x:hover {
+    background-color: #1b303a;
+    cursor: pointer;
+}
 
+#cpu:hover {
+    background-color: #ffc860;
+    cursor: pointer;
+}
+#player:hover {
+    background-color: #65e9e4;
+    cursor: pointer;
+}
+/* Hover end */
