@@ -14,7 +14,7 @@ body {
     gap: 2vh;
 }
 
-.body{
+.body {
     /* padding-inline: 25%; */
     width: 40%;
     /* height: 100vh; */
@@ -25,20 +25,21 @@ body {
 }
 
 
-.header, .footer{
+.header,
+.footer {
     width: 100%;
     display: flex;
     justify-content: space-between;
 }
 
-#x img{
+#x img {
     height: 10px;
 }
 
-#turn{
+#turn {
     color: #A8BFC9;
     /* letter-spacing: 0.5px; */
-    
+
 }
 
 .xo {
@@ -54,14 +55,14 @@ body {
     height: 20px;
 }
 
-.turn{
-    
+.turn {
+
     background: #1F3641;
     border-radius: 15px;
     align-self: center;
     padding: 20px;
     margin-bottom: 20px;
-    
+
 }
 
 /* .return {
@@ -78,7 +79,7 @@ body {
     text-align: center;
 }
 
-#you{
+#you {
     display: flex;
     flex-direction: column;
     padding-top: 5px;
@@ -87,10 +88,10 @@ body {
     font-weight: 15px;
     font: 10px;
     /* text-align: center; */
-    
+
 }
 
-.ties{
+.ties {
     background-color: #A8BFC9;
     border-radius: 10px;
     margin: 10px;
@@ -99,73 +100,83 @@ body {
     height: 50px;
     text-align: center;
     padding-top: 5px;
-    
+
 }
 
-#ties{
-    
+#ties {
+
     font-family: Outfit;
     font-size: 10px;
     font-weight: 15px;
     font: 10px;
-    }
-    
-    .ocpu{
-        background-color: #F2B137;
-        border-radius: 15px;
-        margin: 10px;
-        margin-right: 10px;
-        width: 70px;
-        height: 50px;
-        text-align: center;
-        padding-top: 5px;
-    }
-    
-    #cpu{
-        display: flex;
-        flex-direction: column;
-        padding-top: 5px;
-        font-size: 10px;
-        font-weight: 15px;
-        font: 10px;
-        
-    
-    }
-    
+}
 
-    #num{
-        display: flex;
-        flex-direction: column;
-        padding-top: 5px;
-        font-weight: 600;
-        
-    }
-    
-    .boxes{
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: clamp(.5rem, 1vw, 2rem);
-    }
-    
-    .box{
-        border-radius: 15px;
-        /* background-color: red; */
-        aspect-ratio: 1;
-        background: #1F3641;
-        box-shadow: 0px -8px 0px 0px #10212A inset;
-    
-    }
+.ocpu {
+    background-color: #F2B137;
+    border-radius: 15px;
+    margin: 10px;
+    margin-right: 10px;
+    width: 70px;
+    height: 50px;
+    text-align: center;
+    padding-top: 5px;
+}
 
-    @media screen and (max-width: 920px) {
-        .body {
-            width: 70%;
-        }
+#cpu {
+    display: flex;
+    flex-direction: column;
+    padding-top: 5px;
+    font-size: 10px;
+    font-weight: 15px;
+    font: 10px;
+
+
+}
+
+
+#num {
+    display: flex;
+    flex-direction: column;
+    padding-top: 5px;
+    font-weight: 600;
+
+}
+
+.boxes {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(.5rem, 1vw, 2rem);
+}
+
+.box {
+    border-radius: 15px;
+    /* background-color: red; */
+    aspect-ratio: 1;
+    background: #1F3641;
+    box-shadow: 0px -8px 0px 0px #10212A inset;
+
+}
+
+/* Hover starts*/
+.return:hover {
+    cursor: pointer;
+    background-color: #dbe8ed;
+}
+
+.box:hover {
+    cursor: pointer;
+}
+
+/* Hover ends */
+
+@media screen and (max-width: 920px) {
+    .body {
+        width: 70%;
     }
-    
-    @media screen and (max-width: 500px) {
-        .body {
-            width: 90%;
-        }
+}
+
+@media screen and (max-width: 500px) {
+    .body {
+        width: 90%;
     }
-    
-    
+}
