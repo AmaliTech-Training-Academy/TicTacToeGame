@@ -21,8 +21,25 @@ const WIN_COMBOS = [
 
 // convert board to array
 const board = document.querySelectorAll('.box');
+const boardArr = Array.from(board);
 
-const boardArr = Array.from(board)
+//sample arrangement on board
+boardArr.forEach((element, index) => {
+	if(index % 2 == 0) {
+		element.classList.add('1')
+	} 
+})
+
+// check win for 'x'
+const checkWinX = () => {
+	return WIN_COMBOS.some((combo) => {
+		return combo.every((element) => {
+			let condition = boardArr[element].classList.contains('x');
+			return condition;
+		})
+	})
+}
+
 console.log(boardArr);
-
+console.log(checkWinX());
 // console.log(WIN_COMBOS);
