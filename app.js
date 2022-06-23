@@ -10,7 +10,8 @@ const WIN_COMBOS = [
 	[2, 4, 6],
 ];
 
-
+const X_CLASS = 'x';
+const O_CLASS = 'o';
 //PSEUDOCODE
 // 1. Convert board to array
 // 2. Check if winning combo applies to 'x' or to 'o'
@@ -31,15 +32,15 @@ boardArr.forEach((element, index) => {
 })
 
 // check win for 'x'
-const checkWinX = () => {
+const checkWin = (mark) => {
 	return WIN_COMBOS.some((combo) => {
 		return combo.every((element) => {
-			let condition = boardArr[element].classList.contains('x');
+			let condition = boardArr[element].classList.contains(mark);
 			return condition;
 		})
 	})
 }
 
 console.log(boardArr);
-console.log(checkWinX());
+console.log(checkWin(X_CLASS));
 // console.log(WIN_COMBOS);
