@@ -195,4 +195,41 @@ p {
 
 }
 
+@media only screen and (min-width: 400px) {
+    .container{
+        width: 90%;
+    }
+    .XO{
+            margin-left: 100px;
+    }
+    .rectangle{
+        width: 380px;
+        margin-left: 50px;
+    }
+    .toggle{
+        width: 160px;
+    }
+    #x{
+        margin-left: -30px;
+    }
+    #o{
+        margin: -100px 80px;
+        margin-bottom: 30px;
+        width: inherit;
+        height: 70px;
+    }
+    .new{
+        width:200px ;
+    }
+    #cpu {
+        width: 400px;
+        margin-left: 75px;
+    }
+    #player{
+        width: 400px;
+        margin-left: 75px;
+    }
+    
+    }
+
 
