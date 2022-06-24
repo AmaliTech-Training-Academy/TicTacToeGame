@@ -156,3 +156,43 @@ p {
     cursor: pointer;
 }
 /* Hover end */
+
+/* media start  */
+@media only screen and (max-width: 380px) {
+.container{
+    width: 70%;
+}
+.XO{
+        margin-left: 100px;
+}
+.rectangle{
+    width: 300px;
+    margin-left: 100px;
+}
+.toggle{
+    width: 130px;
+}
+#x{
+    margin-left: -40px;
+}
+#o{
+    margin: -100px 50px;
+    margin-bottom: 30px;
+    width: inherit;
+    height: 70px;
+}
+.new{
+    width:150px ;
+}
+#cpu {
+    width: 300px;
+    margin-left: 120px;
+}
+#player{
+    width: 300px;
+    margin-left: 120px;
+}
+
+}
+
+
