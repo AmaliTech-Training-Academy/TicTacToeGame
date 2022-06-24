@@ -197,30 +197,62 @@ body {
     }
 }
 
-@media screen and (max-width: 480px) {
-    .body {
+@media screen and (max-width: 320px) {
+    .xo{
+        margin-left: -70px;
+        width: 50%;
+    }
+    #XO{
+        margin-left: -10px;
+    }
+    .turn{
+        margin-left: -40px;
+        width: 60%;
+    }
+    .return{
+        margin-left: -30px;
+        margin-right: -20px; 
+    }
+    .you{
+        margin-left: -70px;
+        margin-right: -10px;
         width: 90%;
     }
-}
-
-@media only screen and (max-width: 600px) {
-    .turn {
-        font-size: 22px;
-        padding: 32px 24px;
+    .ties{
+        margin-left: 30px;
+        margin-right: 5px;
+        width: 90%;
     }
+    .ocpu{
+        /* margin-right: 5px;
+        margin-left: 5px; */
+        width: 90%;
+    } 
+   
 }
 
 @media only screen and (max-width: 600px) {
     .boxes {
-        grid-template-columns: repeat(3, minmax(155px, 1fr));
-        grid-template-rows: repeat(3, minmax(155px, 1fr));
+        grid-template-columns: repeat(3, minmax(20px, 1fr));
+        grid-template-rows: repeat(3, minmax(20px, 1fr));
+        margin-left: -70px;
     }
-}
-
-@media only screen and (max-width: 600px) {
     .box {
         padding: 2.8rem;
     }
 }
+    
+/* 
+@media only screen and (max-width: 600px) {
+   
+} */
+/* @media only screen and (max-width: 320px) {
+    .you{
+      width:25px;
+  }
+} */
 
 /* Media queries ends */
+
+
+
