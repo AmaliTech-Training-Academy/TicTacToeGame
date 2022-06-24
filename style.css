@@ -158,8 +158,14 @@ body {
     aspect-ratio: 1;
     background: #1F3641;
     box-shadow: 0px -8px 0px 0px #10212A inset;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
 
 }
+
+
 
 /* Hover starts*/
 .return:hover {
