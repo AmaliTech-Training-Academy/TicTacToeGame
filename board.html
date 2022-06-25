@@ -13,6 +13,7 @@
  
      <!-- Game board start -->
 <div class="body">
+    <section id="gameplay" class="gameplay container d-none">
     <div class="header">
         <div class="xo">
             <svg id="XO" width="72" height="32" viewBox="0 0 72 32" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -24,12 +25,12 @@
         </div>
         <div class="turn"> 
             <!-- updated id name below -->
-            <span id="turn-icon"><img id="turn-icon-img" src="./starter-code/assets/icon-x.svg" alt="turn-icon"></span>
+            <span id="turn-icon" class="display-player"><img id="turn-icon-img" src="./starter-code/assets/icon-x.svg" alt="turn-icon"></span>
             <span id="turn">TURN</span> 
         </div>
-        <div class="return"><img src="./reset.png" alt="retrn"></div>
+        <div class="return"><img src="./reset.png" alt="return"></div>
     </div>
-    <div class="boxes">
+    <div id="gameplay-board" class="boxes">
         <div class="box" id="box1"></div>
         <div class="box" id="box2"></div>
         <div class="box" id="box3"></div>
@@ -45,6 +46,7 @@
         <div class="ties"><span id="ties">TIES</span><span id="num">32</span></div>
         <div class="ocpu"><span id="cpu">O (CPU)</span><span id="num">11</span></div>
     </div>
+    </section>
 </div>
      <!-- Game board Ends -->
   <!-- x/o icon --> 
@@ -69,5 +71,9 @@
 
   <!-- Game board end -->
 
-  <script src="./board.js"></script>
+
+<!--   <script src="./board.js"></script> -->
+
+  <script src="./app.js"></script>
 </body>
+</html>
