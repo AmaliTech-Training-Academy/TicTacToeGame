@@ -11,6 +11,7 @@
  
      <!-- Game board start -->
 <div class="body">
+    <section id="gameplay" class="gameplay container d-none">
     <div class="header">
         <div class="xo">
             <svg id="XO" width="72" height="32" viewBox="0 0 72 32" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -21,12 +22,12 @@
             </svg>
         </div>
         <div class="turn"> 
-            <span id="x"><img src="./x.png" alt="x"></span>
+            <span id="x" class="display-player"><img src="./x.png" alt="x"></span>
             <span id="turn">TURN</span> 
         </div>
         <div class="return"><img src="./reset.png" alt="return"></div>
     </div>
-    <div class="boxes">
+    <div id="gameplay-board" class="boxes">
         <div class="box" id="box1"></div>
         <div class="box" id="box2"></div>
         <div class="box" id="box3"></div>
@@ -42,6 +43,7 @@
         <div class="ties"><span id="ties">TIES</span><span id="num">32</span></div>
         <div class="ocpu"><span id="cpu">O (CPU)</span><span id="num">11</span></div>
     </div>
+    </section>
 </div>
      <!-- Game board Ends -->
   <!-- x/o icon --> 

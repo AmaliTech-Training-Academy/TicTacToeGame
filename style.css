@@ -62,6 +62,7 @@ body {
     align-self: center;
     padding: 20px;
     margin-bottom: 20px;
+    box-shadow: inset 0 -0.4rem 0 #0f191e;
 
 }
 
@@ -74,9 +75,10 @@ body {
     border-radius: 15px;
     margin: 10px;
     margin-right: 20px;
-    width: 70px;
-    height: 50px;
+    width: 140px;
+    height: 72px;
     text-align: center;
+    padding-top: 5px;
 }
 
 #you {
@@ -96,8 +98,8 @@ body {
     border-radius: 10px;
     margin: 10px;
     margin-right: 15px;
-    width: 70px;
-    height: 50px;
+    width: 140px;
+    height: 72px;
     text-align: center;
     padding-top: 5px;
 
@@ -116,8 +118,10 @@ body {
     border-radius: 15px;
     margin: 10px;
     margin-right: 10px;
-    width: 70px;
-    height: 50px;
+    width: 140px;
+    height: 72px;
+    left: 491px;
+    top: 690px;
     text-align: center;
     padding-top: 5px;
 }
@@ -154,8 +158,14 @@ body {
     aspect-ratio: 1;
     background: #1F3641;
     box-shadow: 0px -8px 0px 0px #10212A inset;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
 
 }
+
+
 
 /* Hover starts*/
 .return:hover {
@@ -167,7 +177,25 @@ body {
     cursor: pointer;
 }
 
+.gameplay__card.x::before {
+    content: url("./starter-code/assets/icon-x-outline.svg");
+}
+
 /* Hover ends */
+
+
+/* media starts */
+@media only screen and (max-width: 600px) {
+    html {
+        font-size: 56.25%;
+    }
+}
+
+@media only screen and (max-width: 300px) {
+    html {
+        font-size: 20px;
+    }
+}
 
 @media screen and (max-width: 920px) {
     .body {
@@ -175,8 +203,62 @@ body {
     }
 }
 
-@media screen and (max-width: 500px) {
-    .body {
+@media screen and (max-width: 320px) {
+    .xo{
+        margin-left: -70px;
+        width: 50%;
+    }
+    #XO{
+        margin-left: -10px;
+    }
+    .turn{
+        margin-left: -40px;
+        width: 60%;
+    }
+    .return{
+        margin-left: -30px;
+        margin-right: -20px; 
+    }
+    .you{
+        margin-left: -70px;
+        margin-right: -10px;
         width: 90%;
     }
+    .ties{
+        margin-left: 30px;
+        margin-right: 5px;
+        width: 90%;
+    }
+    .ocpu{
+        /* margin-right: 5px;
+        margin-left: 5px; */
+        width: 90%;
+    } 
+   
 }
+
+@media only screen and (max-width: 600px) {
+    .boxes {
+        grid-template-columns: repeat(3, minmax(20px, 1fr));
+        grid-template-rows: repeat(3, minmax(20px, 1fr));
+        margin-left: -70px;
+    }
+    .box {
+        padding: 2.8rem;
+    }
+}
+    
+/* 
+@media only screen and (max-width: 600px) {
+   
+} */
+/* @media only screen and (max-width: 320px) {
+    .you{
+      width:25px;
+  }
+} */
+
+/* Media queries ends */
+
+
+
