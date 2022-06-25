@@ -5,6 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;700&display=swap" rel="stylesheet">
 
     
     <title>Tic Toc Toc</title>
@@ -41,10 +44,26 @@
         <div class="box" id="box8"></div>
         <div class="box" id="box9"></div>
     </div>
+
+    
+
     <div class="footer">
         <div class="you"><span id="you">X (YOU)</span><span class="num" id="player-score">0</span></div>
         <div class="ties"><span id="ties">TIES</span><span  class="num" id="ties-count">0</span></div>
         <div class="ocpu"><span id="cpu">O (CPU)</span><span class="num" id="cpu-score">0</span></div>
+    </div>
+
+    <div class="states">
+        <p id="state-msg">xxxx</p>
+        <div class="states-images">
+            <img src="./starter-code/assets/icon-o.svg" alt="">
+            <img src="./starter-code/assets/icon-x.svg" alt="">
+            <span id="ttr">TAKES THIS ROUND</span>
+        </div>
+        <div class="states-buttons">
+            <button id="quit">QUIT</button>
+            <button id="next-round">NEXT ROUND</button>
+        </div>
     </div>
     </section>
 </div>

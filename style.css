@@ -1,5 +1,6 @@
 * {
     box-sizing: border-box;
+    font-family: 'Outfit', sans-serif;
 }
 
 body {
@@ -12,11 +13,18 @@ body {
     flex-direction: column;
     height: 100vh;
     gap: 2vh;
+    /* background-color: #dbe8ed; */
+}
+
+/* ernest edits */
+#gameplay {
+    position: relative;
+    height: 80vh;
 }
 
 .body {
     /* padding-inline: 25%; */
-    width: 40%;
+    /* width: 40%; */
     /* height: 100vh; */
     height: 80%;
     justify-self: center;
@@ -189,6 +197,26 @@ body {
     background-repeat: no-repeat;
     background-position: center;
 }
+
+.states {
+    font-family: 'Outfit', sans-serif;
+    visibility: hidden;
+    position: fixed;
+    top: 50%;
+    margin-top: -133px;
+    left: 0;
+    background-color: #1F3641;
+    /* background-color: pink ; */
+    color:#F2B137;
+    width: 100vw;
+    height: 266px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
 /* ernest add ends here */
 
 
