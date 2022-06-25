@@ -32,8 +32,9 @@ body {
     justify-content: space-between;
 }
 
-#x img {
-    height: 10px;
+/* updated id name from 'x' to 'turn-icon' */
+#turn-icon img {
+    height: 15px;
 }
 
 #turn {
@@ -154,6 +155,7 @@ body {
     aspect-ratio: 1;
     background: #1F3641;
     box-shadow: 0px -8px 0px 0px #10212A inset;
+    display: flex; /* ernest added */
 
 }
 
@@ -166,6 +168,23 @@ body {
 .box:hover {
     cursor: pointer;
 }
+
+
+/* ernest add starts here */
+.playerX {
+    background-image: url(./starter-code/assets/icon-x.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.playerO {
+    background-image: url(./starter-code/assets/icon-o.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+
+/* ernest add ends here */
 
 /* Hover ends */
 
