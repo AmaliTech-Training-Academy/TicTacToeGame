@@ -26,8 +26,8 @@ window.addEventListener('DOMContentLoaded', () => {
 
         //TODO 
         // turn and turn-icon update
-        
-
+        // restart game
+        // round-tied
 
 
         //clear screen
@@ -35,6 +35,7 @@ window.addEventListener('DOMContentLoaded', () => {
             try {
                 item.classList.remove('playerX')
                 item.classList.remove('playerO')
+                document.getElementById('states').style.visibility = 'hidden'
             } catch (error) {
                 console.log(error)
             }
@@ -119,7 +120,6 @@ window.addEventListener('DOMContentLoaded', () => {
                                 document.getElementById('win-icon').innerHTML = user[0]
                                 document.getElementById('ttr').style.color = user[1]
                                 document.getElementById('states').style.visibility = 'visible'
-                                clrScreen();
 
                             }
                             const cpuChoice = () => {
@@ -133,7 +133,6 @@ window.addEventListener('DOMContentLoaded', () => {
                                     document.getElementById('win-icon').innerHTML = computer[0]
                                     document.getElementById('ttr').style.color = computer[1]
                                     document.getElementById('states').style.visibility = 'visible'
-                                    clrScreen();
                                 }
                             }
                             cpuChoice();
@@ -143,6 +142,9 @@ window.addEventListener('DOMContentLoaded', () => {
                     mark.addEventListener("click", step);
                 })                
             }
+
+            const nextRound = document.getElementById('next-round')
+            nextRound.addEventListener('click', clrScreen)
              
             // const highLight = (combo) => {
             //         combo.forEach((idx) => box[idx].classList.add("highlight"))
