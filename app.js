@@ -7,12 +7,24 @@ window.addEventListener('DOMContentLoaded', () => {
     
     const gameBoard = (() => {        
         const boxes = document.querySelectorAll(".box");
-        // const Osvg = '<svg width="64" height="64" xmlns="http://www.w3.org/2000/svg"><path d="M32 0c17.673 0 32 14.327 32 32 0 17.673-14.327 32-32 32C14.327 64 0 49.673 0 32 0 14.327 14.327 0 32 0Zm0 18.963c-7.2 0-13.037 5.837-13.037 13.037 0 7.2 5.837 13.037 13.037 13.037 7.2 0 13.037-5.837 13.037-13.037 0-7.2-5.837-13.037-13.037-13.037Z" fill="#F2B137"/></svg>'
-        // const Xsvg = '<svg width="64" height="64" xmlns="http://www.w3.org/2000/svg"><path d="M15.002 1.147 32 18.145 48.998 1.147a3 3 0 0 1 4.243 0l9.612 9.612a3 3 0 0 1 0 4.243L45.855 32l16.998 16.998a3 3 0 0 1 0 4.243l-9.612 9.612a3 3 0 0 1-4.243 0L32 45.855 15.002 62.853a3 3 0 0 1-4.243 0L1.147 53.24a3 3 0 0 1 0-4.243L18.145 32 1.147 15.002a3 3 0 0 1 0-4.243l9.612-9.612a3 3 0 0 1 4.243 0Z" fill="#31C3BD" fill-rule="evenodd"/></svg>'
+        const Osvg = '<svg width="64" height="64" xmlns="http://www.w3.org/2000/svg"><path d="M32 0c17.673 0 32 14.327 32 32 0 17.673-14.327 32-32 32C14.327 64 0 49.673 0 32 0 14.327 14.327 0 32 0Zm0 18.963c-7.2 0-13.037 5.837-13.037 13.037 0 7.2 5.837 13.037 13.037 13.037 7.2 0 13.037-5.837 13.037-13.037 0-7.2-5.837-13.037-13.037-13.037Z" fill="#F2B137"/></svg>'
+        const Xsvg = '<svg width="64" height="64" xmlns="http://www.w3.org/2000/svg"><path d="M15.002 1.147 32 18.145 48.998 1.147a3 3 0 0 1 4.243 0l9.612 9.612a3 3 0 0 1 0 4.243L45.855 32l16.998 16.998a3 3 0 0 1 0 4.243l-9.612 9.612a3 3 0 0 1-4.243 0L32 45.855 15.002 62.853a3 3 0 0 1-4.243 0L1.147 53.24a3 3 0 0 1 0-4.243L18.145 32 1.147 15.002a3 3 0 0 1 0-4.243l9.612-9.612a3 3 0 0 1 4.243 0Z" fill="#31C3BD" fill-rule="evenodd"/></svg>'
         let box = Array.from(boxes);
+        
+        // Mark and color
+        const O_MARK = [Osvg, '#FFC860'];
+        const X_MARK = [ Xsvg, '#31C3BD']
+
+        // Assign user and computer
+        let user = X_MARK
+        let computer;
+        if (user == X_MARK) {
+            computer = O_MARK
+        } else {
+            computer = X_MARK
+        }
 
         //TODO 
-        // scores
         // turn and turn-icon update
         
 
@@ -103,7 +115,10 @@ window.addEventListener('DOMContentLoaded', () => {
                             if (checkWin('playerX')){
                                 userScore += 1
                                 document.getElementById('player-score').innerHTML = userScore.toString();
-                                alert('You won!')
+                                document.getElementById('state-text').innerHTML = 'YOU WON!'
+                                document.getElementById('win-icon').innerHTML = user[0]
+                                document.getElementById('ttr').style.color = user[1]
+                                document.getElementById('states').style.visibility = 'visible'
                                 clrScreen();
 
                             }
@@ -114,7 +129,10 @@ window.addEventListener('DOMContentLoaded', () => {
                                 if (checkWin('playerO')){
                                     cpuScore += 1
                                     document.getElementById('cpu-score').innerHTML = cpuScore.toString();
-                                    alert('CPU won!')
+                                    document.getElementById('state-text').innerHTML = 'OH NO, YOU LOST...'
+                                    document.getElementById('win-icon').innerHTML = computer[0]
+                                    document.getElementById('ttr').style.color = computer[1]
+                                    document.getElementById('states').style.visibility = 'visible'
                                     clrScreen();
                                 }
                             }

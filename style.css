@@ -1,6 +1,9 @@
 * {
     box-sizing: border-box;
     font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    margin: 0;
+    padding: 0;
 }
 
 body {
@@ -199,6 +202,7 @@ body {
 }
 
 .states {
+    z-index: 1;
     font-family: 'Outfit', sans-serif;
     visibility: hidden;
     position: fixed;
@@ -207,13 +211,54 @@ body {
     left: 0;
     background-color: #1F3641;
     /* background-color: pink ; */
-    color:#F2B137;
+    /* color:#F2B137; */
     width: 100vw;
     height: 266px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+#state-text {
+    font-size: 16px;
+    color: #A8BFC9;
+}
+
+.states-message {
+    display: flex;
+    column-gap: 24px;
+    align-items: center;
+}
+
+#ttr {
+    font-size: 40px;
+}
+
+.states-buttons {
+    display: flex;
+    gap: 16px;
+    color: #1A2A33;
+    margin-top: 16px;
+
+}
+
+#quit {
+    font-size: 16px;
+    width: 76px;
+    height: 52px;
+    background: #A8BFC9;
+    box-shadow: inset 0px -4px 0px #6B8997;
+    border-radius: 10px;
+}
+
+#next-round {
+    font-size: 16px;
+    width: 146px;
+    height: 52px;
+    background: #F2B137;
+    box-shadow: inset 0px -4px 0px #CC8B13;
+    border-radius: 10px;
 }
 
 
