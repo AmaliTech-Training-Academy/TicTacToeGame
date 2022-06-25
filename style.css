@@ -3,7 +3,7 @@
 }
 
 body {
-    /* font-family: 'Muli', 'sans-serif';   */
+    font-family: 'Outfit', 'sans-serif';  
     /* height: 100vh;  */
     align-items: center;
     margin: 0;
@@ -30,6 +30,75 @@ body {
     width: 100%;
     display: flex;
     justify-content: space-between;
+}
+
+h1 {
+    display: block;
+    /* font-family: 'Outfit' 'san-serif'; */
+    font-size: 2em;
+    font-weight: 700;
+    text-transform: uppercase;
+   margin-bottom: 30px;
+}
+
+.mode {
+    position: absolute;
+    width: 100%;
+    /* padding: 6.7rem 0; */
+    background-color: #1f3641;
+    text-align: center;
+    transform: translateY(-50%);
+    animation: fadeIn 0.4s ease-in-out;
+    left: 0;
+    border-radius: 10px;
+    top: 60%;
+    margin-top: -20px;
+    display: none;
+}
+.heading {
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 4rem;
+    line-height: 5rem;
+    color: silver;
+}
+.mode__buttons {
+    margin-top: 3rem;
+}
+.cancel {
+    background-color: #a8bfc9;
+    box-shadow: inset 0 -0.4rem 0 #6991a2;
+    width: auto;
+    display: inline-block;
+    padding: 1.5rem 1.8rem;
+    border-radius: 15px;
+    font-weight: 700;
+    font-family: 'outfit';
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    line-height: 2.5rem;
+    text-align: center;
+    border: none;
+    transition: all 0.4s ease;
+    margin-bottom: 10px;
+}
+.btn-restart{
+    margin-bottom: 10px;
+    width: auto;
+    font-weight: 700;
+    font-family: 'outfit';
+    font-size: 1.2rem;
+    display: inline-block;
+    padding: 1.5rem 1.8rem;
+    border-radius: 15px;
+    text-transform: uppercase;
+    line-height: 2.5rem;
+    text-align: center;
+    border: none;
+    transition: all 0.4s ease;
+    border-radius: 15px;
+    background-color: #f2b137;
+    box-shadow: inset 0 -0.4rem 0 #b77c0c;
 }
 
 #x img {
@@ -169,12 +238,21 @@ body {
 
 .box:hover {
     cursor: pointer;
+    content: url(./starter-code/assets/icon-x-outline.svg);
+    /* content: inherit; */
 }
 
-.gameplay__card.x::before {
+.b.x::before {
     content: url("./starter-code/assets/icon-x-outline.svg");
 }
-
+.btn-restart:hover {
+    background-color: #ffc860;
+    cursor: pointer;
+}
+.cancel:hover {
+    background-color: #65e9e4;
+    cursor: pointer;
+}
 /* Hover ends */
 
 
@@ -309,9 +387,9 @@ body {
     .boxes {
         width: 400px;
     }
-    .body{
+    /* .body{
         width: 70%;
-    }
+    } */
     .footer{
         margin-left: -40px;
         justify-content: space-between;
@@ -337,13 +415,6 @@ body {
      width: 80%;
 }  
 } 
-/* @media only screen and (min-width: 1000px) {
-.header{
-    width: 610px;
-
-}
-} */
-
 /* Media queries ends */
 
 
