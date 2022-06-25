@@ -32,8 +32,9 @@ body {
     justify-content: space-between;
 }
 
-#x img {
-    height: 10px;
+/* updated id name from 'x' to 'turn-icon' */
+#turn-icon img {
+    height: 15px;
 }
 
 #turn {
@@ -161,8 +162,6 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    
-
 }
 
 
@@ -177,9 +176,26 @@ body {
     cursor: pointer;
 }
 
+
+/* ernest add starts here */
+.playerX {
+    background-image: url(./starter-code/assets/icon-x.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.playerO {
+    background-image: url(./starter-code/assets/icon-o.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+/* ernest add ends here */
+
+
 .gameplay__card.x::before {
     content: url("./starter-code/assets/icon-x-outline.svg");
 }
+
 
 /* Hover ends */
 
