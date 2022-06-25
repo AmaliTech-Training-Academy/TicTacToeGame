@@ -1,11 +1,37 @@
 //Gideon ============Solo vs CPU
 window.addEventListener('DOMContentLoaded', () => {
+    //score tracking
+    let userScore = Number(document.getElementById('player-score').innerHTML);
+    let tiesCount = Number(document.getElementById('ties-count').innerHTML);
+    let cpuScore = Number(document.getElementById('cpu-score').innerHTML);
+    
     const gameBoard = (() => {        
         const boxes = document.querySelectorAll(".box");
         // const Osvg = '<svg width="64" height="64" xmlns="http://www.w3.org/2000/svg"><path d="M32 0c17.673 0 32 14.327 32 32 0 17.673-14.327 32-32 32C14.327 64 0 49.673 0 32 0 14.327 14.327 0 32 0Zm0 18.963c-7.2 0-13.037 5.837-13.037 13.037 0 7.2 5.837 13.037 13.037 13.037 7.2 0 13.037-5.837 13.037-13.037 0-7.2-5.837-13.037-13.037-13.037Z" fill="#F2B137"/></svg>'
         // const Xsvg = '<svg width="64" height="64" xmlns="http://www.w3.org/2000/svg"><path d="M15.002 1.147 32 18.145 48.998 1.147a3 3 0 0 1 4.243 0l9.612 9.612a3 3 0 0 1 0 4.243L45.855 32l16.998 16.998a3 3 0 0 1 0 4.243l-9.612 9.612a3 3 0 0 1-4.243 0L32 45.855 15.002 62.853a3 3 0 0 1-4.243 0L1.147 53.24a3 3 0 0 1 0-4.243L18.145 32 1.147 15.002a3 3 0 0 1 0-4.243l9.612-9.612a3 3 0 0 1 4.243 0Z" fill="#31C3BD" fill-rule="evenodd"/></svg>'
-       
         let box = Array.from(boxes);
+
+        //TODO 
+        // scores
+        // turn and turn-icon update
+        
+
+
+
+        //clear screen
+        const clrScreen = () => box.forEach((item) => {
+            try {
+                item.classList.remove('playerX')
+                item.classList.remove('playerO')
+            } catch (error) {
+                console.log(error)
+            }
+        })
+   
+        
+  
+
+        
         
         //ernest's code
         //WIN, LOSE AND TIED STATE
@@ -34,7 +60,7 @@ window.addEventListener('DOMContentLoaded', () => {
             return box.every((val) => 
             val.classList.contains('playerX') || val.classList.contains('playerO'))
         }
-        console.log(boardFull())
+        // console.log(boardFull())
 
         //Start game
         const player = Players();
@@ -47,6 +73,8 @@ window.addEventListener('DOMContentLoaded', () => {
                 //problem here... loops forever at last point
                 while(box[play].classList.contains('playerX') || box[play].classList.contains('playerO')){
                   if (boardFull()) {
+                    tiesCount += 1
+                    document.getElementById('ties-count').innerHTML = tiesCount.toString();
                     return
                   }
                   play = Math.floor(Math.random() * box.length);
@@ -73,14 +101,25 @@ window.addEventListener('DOMContentLoaded', () => {
                         if(!mark.classList.contains('playerX') && !mark.classList.contains('playerO')) {                         
                             mark.classList.add('playerX')
                             if (checkWin('playerX')){
-                                window.location.replace("./index.html")
+                                userScore += 1
+                                document.getElementById('player-score').innerHTML = userScore.toString();
+                                alert('You won!')
+                                clrScreen();
+
                             }
-                            setTimeout(() => {
-                                player.machine();   
-                            }, 800);
-                            if (checkWin('playerO')){
-                                window.location.replace("./index.html")
+                            const cpuChoice = () => {
+                                setTimeout(() => {
+                                    player.machine();   
+                                }, 800);
+                                if (checkWin('playerO')){
+                                    cpuScore += 1
+                                    document.getElementById('cpu-score').innerHTML = cpuScore.toString();
+                                    alert('CPU won!')
+                                    clrScreen();
+                                }
                             }
+                            cpuChoice();
+                            
                         }                                                                     
                     }
                     mark.addEventListener("click", step);
