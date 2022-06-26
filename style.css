@@ -15,7 +15,7 @@ body {
     display: flex;
     flex-direction: column;
     height: 100vh;
-    gap: 2vh;
+    /* gap: 2vh; */
     /* background-color: #dbe8ed; */
 }
 
@@ -83,7 +83,7 @@ body {
 } */
 
 .you {
-    background: #31C3BD;
+    background-color: #31C3BD;
     border-radius: 15px;
     margin: 10px;
     margin-right: 20px;
