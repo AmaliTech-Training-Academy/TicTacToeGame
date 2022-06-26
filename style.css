@@ -240,8 +240,11 @@ body {
 }
 
 .states-message {
+    /* width: 400px; */
+    /* background-color: #6B8997; */
     display: flex;
     column-gap: 24px;
+    justify-content: space-evenly;
     align-items: center;
 }
 

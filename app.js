@@ -27,8 +27,18 @@ window.addEventListener('DOMContentLoaded', () => {
         //TODO 
         // turn and turn-icon update
         // restart game
-        // round-tied
 
+
+        const tiedState = () => {
+            tiesCount += 1
+            document.getElementById('ties-count').innerHTML = tiesCount.toString();
+            document.getElementById('state-text').innerHTML = ''
+            document.getElementById('win-icon').innerHTML = ''
+            document.getElementById('ttr').innerHTML = 'ROUND TIED'
+            document.getElementById('ttr').style.color = '#A8BFC9'
+            document.getElementById('states-message').style.columnGap = '0px'
+            document.getElementById('states').style.visibility = 'visible'
+        }
 
         //clear screen
         const clrScreen = () => box.forEach((item) => {
@@ -40,11 +50,7 @@ window.addEventListener('DOMContentLoaded', () => {
                 console.log(error)
             }
         })
-   
-        
-  
 
-        
         
         //ernest's code
         //WIN, LOSE AND TIED STATE
@@ -82,19 +88,30 @@ window.addEventListener('DOMContentLoaded', () => {
         function Players (){
             const machine = () => {            
                 let play = Math.floor(Math.random() * box.length);
-                console.log(`first play value ${play}`)
+                // console.log(`first play value ${play}`)
                 //problem here... loops forever at last point
                 while(box[play].classList.contains('playerX') || box[play].classList.contains('playerO')){
-                  if (boardFull()) {
-                    tiesCount += 1
-                    document.getElementById('ties-count').innerHTML = tiesCount.toString();
+                  if (boardFull() && !checkWin('playerX') && !checkWin('playerO')) {
+                    tiedState()
+                    return
+                  } else if (boardFull() && (checkWin('playerX') || checkWin('playerO'))) {
                     return
                   }
                   play = Math.floor(Math.random() * box.length);
-                  console.log(`second play value ${play}`)
+                //   console.log(`second play value ${play}`)
 
                 }
                 box[play].classList.add('playerO')
+                if (checkWin('playerO')){
+                    cpuScore += 1
+                    document.getElementById('cpu-score').innerHTML = cpuScore.toString();
+                    document.getElementById('state-text').innerHTML = 'OH NO, YOU LOST...'
+                    document.getElementById('ttr').innerHTML = 'TAKES THIS ROUND'
+                    document.getElementById('states-message').style.columnGap = '24px'
+                    document.getElementById('win-icon').innerHTML = computer[0]
+                    document.getElementById('ttr').style.color = computer[1]
+                    document.getElementById('states').style.visibility = 'visible'
+                }
                 // console.log(play);  
   
               }
@@ -117,6 +134,8 @@ window.addEventListener('DOMContentLoaded', () => {
                                 userScore += 1
                                 document.getElementById('player-score').innerHTML = userScore.toString();
                                 document.getElementById('state-text').innerHTML = 'YOU WON!'
+                                document.getElementById('ttr').innerHTML = 'TAKES THIS ROUND'
+                                document.getElementById('states-message').style.columnGap = '24px'
                                 document.getElementById('win-icon').innerHTML = user[0]
                                 document.getElementById('ttr').style.color = user[1]
                                 document.getElementById('states').style.visibility = 'visible'
@@ -126,14 +145,6 @@ window.addEventListener('DOMContentLoaded', () => {
                                 setTimeout(() => {
                                     player.machine();   
                                 }, 800);
-                                if (checkWin('playerO')){
-                                    cpuScore += 1
-                                    document.getElementById('cpu-score').innerHTML = cpuScore.toString();
-                                    document.getElementById('state-text').innerHTML = 'OH NO, YOU LOST...'
-                                    document.getElementById('win-icon').innerHTML = computer[0]
-                                    document.getElementById('ttr').style.color = computer[1]
-                                    document.getElementById('states').style.visibility = 'visible'
-                                }
                             }
                             cpuChoice();
                             
@@ -142,7 +153,7 @@ window.addEventListener('DOMContentLoaded', () => {
                     mark.addEventListener("click", step);
                 })                
             }
-
+            // next round functionality
             const nextRound = document.getElementById('next-round')
             nextRound.addEventListener('click', clrScreen)
              
