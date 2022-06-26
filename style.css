@@ -7,7 +7,7 @@
 }
 
 body {
-    /* font-family: 'Muli', 'sans-serif';   */
+    font-family: 'Outfit', 'sans-serif';  
     /* height: 100vh;  */
     align-items: center;
     margin: 0;
@@ -15,7 +15,7 @@ body {
     display: flex;
     flex-direction: column;
     height: 100vh;
-    gap: 2vh;
+    /* gap: 2vh; */
     /* background-color: #dbe8ed; */
 }
 
@@ -83,7 +83,7 @@ body {
 } */
 
 .you {
-    background: #31C3BD;
+    background-color: #31C3BD;
     border-radius: 15px;
     margin: 10px;
     margin-right: 20px;
@@ -185,7 +185,21 @@ body {
 
 .box:hover {
     cursor: pointer;
+    background: url(./starter-code/assets/icon-x-outline.svg);
+    background-repeat: no-repeat;
+    background-position: 30px;
 }
+#next-round:hover {
+    background-color: #ffc860;
+    cursor: pointer;
+}
+#quit:hover {
+    background-color: #65e9e4;
+    cursor: pointer;
+}
+
+
+/* Hover ends */
 
 
 /* ernest add starts here */
@@ -268,14 +282,6 @@ body {
 /* ernest add ends here */
 
 
-.gameplay__card.x::before {
-    content: url("./starter-code/assets/icon-x-outline.svg");
-}
-
-
-/* Hover ends */
-
-
 /* media starts */
 @media only screen and (max-width: 600px) {
     html {
@@ -283,33 +289,39 @@ body {
     }
 }
 
-@media only screen and (max-width: 300px) {
+@media only screen and (max-width: 320px) {
     html {
         font-size: 20px;
-    }
+    width: 40%;
+    margin-top: -50px;
+}
 }
 
-@media screen and (max-width: 920px) {
-    .body {
-        width: 70%;
-    }
+@media screen and (min-width: 700px) {
+.body{
+    width: 400px;
 }
+}
+
 
 @media screen and (max-width: 320px) {
-    .xo{
-        margin-left: -70px;
-        width: 50%;
+    .body{
+        width: 20%;
     }
-    #XO{
-        margin-left: -10px;
+   
+    .footer{
+        width: 400px;
+    }
+    .xo{
+        margin-left: -5px;
     }
     .turn{
-        margin-left: -40px;
-        width: 60%;
+        margin-left: -18px;
+        /* width: 36.4%; */
     }
     .return{
-        margin-left: -30px;
-        margin-right: -20px; 
+        margin-left: 10px;
+        margin-right: -10px; 
     }
     .you{
         margin-left: -70px;
@@ -329,10 +341,10 @@ body {
    
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (min-width: 600px) {
     .boxes {
-        grid-template-columns: repeat(3, minmax(20px, 1fr));
-        grid-template-rows: repeat(3, minmax(20px, 1fr));
+        grid-template-columns: repeat(3, minmax(50px, 1fr));
+        grid-template-rows: repeat(3, minmax(50px, 1fr));
         margin-left: -70px;
     }
     .box {
@@ -340,16 +352,98 @@ body {
     }
 }
     
-/* 
-@media only screen and (max-width: 600px) {
-   
-} */
-/* @media only screen and (max-width: 320px) {
-    .you{
-      width:25px;
-  }
-} */
 
+@media only screen and (max-width: 600px) {
+    .body{
+        width: 40%;
+        height: 400px;
+    }
+    .boxes {
+        grid-template-columns: repeat(3, minmax(120px, 1fr));
+        grid-template-rows: repeat(3, minmax(120px, 1fr));
+        margin-left: -150px;
+    }
+    .footer{
+        width: 350px;
+        margin-left: -130px;
+        justify-content: space-between;
+    }
+    .header{
+        width: 350px;
+        margin-left: -130px;
+        justify-content: space-between;
+    }
+}
+ @media only screen and (max-width: 375px) {
+    .boxes {
+        grid-template-columns: repeat(3, minmax(100px, 1fr));
+        grid-template-rows: repeat(3, minmax(100px, 1fr));
+        margin-left: -60px;
+    }
+    .body{
+        width: 70%;
+    }
+    .footer{
+        width: 300px;
+        margin-left: -30px;
+        justify-content: space-between;
+    }
+    .header{
+        width: 300px;
+        margin-left: -50px;
+        justify-content: space-between;
+    }
+    .you{
+      width:200%;
+      margin-left: -25px;
+      margin-right: 30px;
+   }
+  .ties{
+    margin-left: -10px; 
+ width: 200%;
+}
+.ocpu{ 
+    margin-right: 20px;
+    /* margin-left: 5px;  */
+     width: 200%;
+}  
+.turn{
+    font-size: 20px;
+}
+} 
+
+@media only screen and (min-width: 700px) {
+    .boxes {
+        width: 400px;
+    }
+    /* .body{
+        width: 70%;
+    } */
+    .footer{
+        margin-left: -40px;
+        justify-content: space-between;
+        width: 340px;
+    }
+    .header{
+        width: 380px;
+        margin-left: -50px;
+        justify-content: space-between;
+    }
+    .you{
+      width:80%;
+      margin-left: -30px;
+      margin-right: 30px;
+   }
+  .ties{
+    margin-left: -5px; 
+ width: 80%;
+}
+.ocpu{ 
+    margin-right: -30px;
+    margin-left: 20px; 
+     width: 80%;
+}  
+} 
 /* Media queries ends */
 
 
