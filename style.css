@@ -1,5 +1,9 @@
 * {
     box-sizing: border-box;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    margin: 0;
+    padding: 0;
 }
 
 body {
@@ -12,11 +16,18 @@ body {
     flex-direction: column;
     height: 100vh;
     gap: 2vh;
+    /* background-color: #dbe8ed; */
+}
+
+/* ernest edits */
+#gameplay {
+    position: relative;
+    height: 80vh;
 }
 
 .body {
     /* padding-inline: 25%; */
-    width: 40%;
+    /* width: 40%; */
     /* height: 100vh; */
     height: 80%;
     justify-self: center;
@@ -32,8 +43,9 @@ body {
     justify-content: space-between;
 }
 
-#x img {
-    height: 10px;
+/* updated id name from 'x' to 'turn-icon' */
+#turn-icon img {
+    height: 15px;
 }
 
 #turn {
@@ -138,7 +150,7 @@ body {
 }
 
 
-#num {
+.num {
     display: flex;
     flex-direction: column;
     padding-top: 5px;
@@ -158,8 +170,12 @@ body {
     aspect-ratio: 1;
     background: #1F3641;
     box-shadow: 0px -8px 0px 0px #10212A inset;
-
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+
+
 
 /* Hover starts*/
 .return:hover {
@@ -169,13 +185,98 @@ body {
 
 .box:hover {
     cursor: pointer;
+    background: url(./starter-code/assets/icon-x-outline.svg);
+    background-repeat: no-repeat;
+    background-position: 30px;
+}
+#next-round:hover {
+    background-color: #ffc860;
+    cursor: pointer;
+}
+#quit:hover {
+    background-color: #65e9e4;
+    cursor: pointer;
 }
 
-.gameplay__card.x::before {
-    content: url("./starter-code/assets/icon-x-outline.svg");
-}
 
 /* Hover ends */
+
+
+/* ernest add starts here */
+.playerX {
+    background-image: url(./starter-code/assets/icon-x.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.playerO {
+    background-image: url(./starter-code/assets/icon-o.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.states {
+    z-index: 1;
+    font-family: 'Outfit', sans-serif;
+    visibility: hidden;
+    position: fixed;
+    top: 50%;
+    margin-top: -133px;
+    left: 0;
+    background-color: #1F3641;
+    /* background-color: pink ; */
+    /* color:#F2B137; */
+    width: 100vw;
+    height: 266px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#state-text {
+    font-size: 16px;
+    color: #A8BFC9;
+}
+
+.states-message {
+    display: flex;
+    column-gap: 24px;
+    align-items: center;
+}
+
+#ttr {
+    font-size: 40px;
+}
+
+.states-buttons {
+    display: flex;
+    gap: 16px;
+    color: #1A2A33;
+    margin-top: 16px;
+
+}
+
+#quit {
+    font-size: 16px;
+    width: 76px;
+    height: 52px;
+    background: #A8BFC9;
+    box-shadow: inset 0px -4px 0px #6B8997;
+    border-radius: 10px;
+}
+
+#next-round {
+    font-size: 16px;
+    width: 146px;
+    height: 52px;
+    background: #F2B137;
+    box-shadow: inset 0px -4px 0px #CC8B13;
+    border-radius: 10px;
+}
+
+
+/* ernest add ends here */
 
 
 /* media starts */
@@ -213,7 +314,7 @@ body {
     }
     .turn{
         margin-left: -18px;
-        width: 36.4%;
+        /* width: 36.4%; */
     }
     .return{
         margin-left: 10px;
@@ -303,15 +404,18 @@ body {
     /* margin-left: 5px;  */
      width: 200%;
 }  
+.turn{
+    font-size: 20px;
+}
 } 
 
 @media only screen and (min-width: 700px) {
     .boxes {
         width: 400px;
     }
-    .body{
+    /* .body{
         width: 70%;
-    }
+    } */
     .footer{
         margin-left: -40px;
         justify-content: space-between;
