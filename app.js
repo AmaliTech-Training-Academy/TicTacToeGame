@@ -7,6 +7,9 @@ window.addEventListener('DOMContentLoaded', () => {
         let userClass = sessionStorage.getItem("userClass")
         let computer = JSON.parse(sessionStorage.getItem("computer"))
         let computerClass = sessionStorage.getItem("computerClass")
+        
+        let restartBtn = document.getElementById('restart-icon')
+        console.log(restartBtn)
         //score tracking
         // let userScoreUnit = document.getElementById
         let userScore = Number(document.getElementById('player-score').innerHTML);
