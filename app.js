@@ -1,13 +1,18 @@
 //Gideon ============Solo vs CPU
-import { user, userClass, computer, computerClass } from './index.js'
+// import { user, userClass, computer, computerClass } from './index.js'
 
 window.addEventListener('DOMContentLoaded', () => {
     const gameBoard = (() => {
-
+        let user = JSON.parse(sessionStorage.getItem("user"))
+        let userClass = sessionStorage.getItem("userClass")
+        let computer = JSON.parse(sessionStorage.getItem("computer"))
+        let computerClass = sessionStorage.getItem("computerClass")
         //score tracking
+        // let userScoreUnit = document.getElementById
         let userScore = Number(document.getElementById('player-score').innerHTML);
         let tiesCount = Number(document.getElementById('ties-count').innerHTML);
         let cpuScore = Number(document.getElementById('cpu-score').innerHTML);
+
     
         const boxes = document.querySelectorAll(".box");
         let box = Array.from(boxes);

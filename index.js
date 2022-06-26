@@ -16,15 +16,21 @@ let userClass = 'playerO'
 let computer = X_MARK
 let computerClass = 'playerX'
 
+sessionStorage.setItem("user", JSON.stringify(O_MARK))
+sessionStorage.setItem("userClass", "playerO")
+sessionStorage.setItem("computer", JSON.stringify(X_MARK))
+sessionStorage.setItem("computerClass", "playerX")
+
 // fix this toggle situation to flip the colors
 const toggleX = () => {
     xbg.style.backgroundColor = '#A8BFC9'
     xSelect.style.filter = 'invert(12%) sepia(12%) saturate(1823%) hue-rotate(157deg) brightness(96%) contrast(90%)'
     obg.style.backgroundColor = '#1A2A33'
     oSelect.style.filter = 'invert(79%) sepia(32%) saturate(145%) hue-rotate(153deg) brightness(90%) contrast(89%)'
-    user = X_MARK
-    userClass = 'playerX'
-    computer = O_MARK
+    sessionStorage.setItem("user", JSON.stringify(X_MARK))
+    sessionStorage.setItem("userClass", "playerX")
+    sessionStorage.setItem("computer", JSON.stringify(O_MARK))
+    sessionStorage.setItem("computerClass", "playerO")
     computerClass = 'playerO'
 }
 
@@ -33,17 +39,15 @@ const toggleO = () => {
     oSelect.style.filter = 'invert(12%) sepia(12%) saturate(1823%) hue-rotate(157deg) brightness(96%) contrast(90%)'
     xbg.style.backgroundColor = '#1A2A33'
     xSelect.style.filter = 'invert(79%) sepia(32%) saturate(145%) hue-rotate(153deg) brightness(90%) contrast(89%)'
-    user = O_MARK
-    userClass = 'playerO'
-    computer = X_MARK
-    computerClass = 'playerX'
+    sessionStorage.setItem("user", JSON.stringify(O_MARK))
+    sessionStorage.setItem("userClass", "playerO")
+    sessionStorage.setItem("computer", JSON.stringify(X_MARK))
+    sessionStorage.setItem("computerClass", "playerX")
 }
 
-try {
-    xbg.addEventListener('click', toggleX)
-    obg.addEventListener('click', toggleO) 
-} catch (error) {
-    console.log(error)
-}
 
-export { user, userClass, computer, computerClass };
+xbg.addEventListener('click', toggleX)
+obg.addEventListener('click', toggleO) 
+
+
+// export { user, userClass, computer, computerClass };
