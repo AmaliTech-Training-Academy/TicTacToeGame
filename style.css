@@ -7,7 +7,7 @@
 }
 
 body {
-    /* font-family: 'Muli', 'sans-serif';   */
+    font-family: 'Outfit', 'sans-serif';  
     /* height: 100vh;  */
     align-items: center;
     margin: 0;
@@ -441,13 +441,6 @@ body {
      width: 80%;
 }  
 } 
-/* @media only screen and (min-width: 1000px) {
-.header{
-    width: 610px;
-
-}
-} */
-
 /* Media queries ends */
 
 
