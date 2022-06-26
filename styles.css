@@ -1,5 +1,6 @@
 * {
     box-sizing: border-box;
+    font-family: 'Outfit', sans-serif;
 }
 
 body {
@@ -157,6 +158,7 @@ p {
 }
 /* Hover end */
 
+
 /* media start  */
 @media only screen and (max-width: 380px) {
 .container{
@@ -232,4 +234,9 @@ p {
     
     }
 
+
+
+.playerX {
+    
+}
 
