@@ -4,6 +4,10 @@ window.addEventListener('DOMContentLoaded', () => {
     let userScore = Number(document.getElementById('player-score').innerHTML);
     let tiesCount = Number(document.getElementById('ties-count').innerHTML);
     let cpuScore = Number(document.getElementById('cpu-score').innerHTML);
+    const xSelect = document.getElementById('x-img')
+    const oSelect = document.getElementById('o-img')
+
+    
     
     const gameBoard = (() => {        
         const boxes = document.querySelectorAll(".box");

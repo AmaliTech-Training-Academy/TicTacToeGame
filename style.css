@@ -15,7 +15,7 @@ body {
     display: flex;
     flex-direction: column;
     height: 100vh;
-    gap: 2vh;
+    /* gap: 2vh; */
     /* background-color: #dbe8ed; */
 }
 
