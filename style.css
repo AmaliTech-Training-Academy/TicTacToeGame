@@ -56,16 +56,16 @@ body {
 
 .xo {
     padding-top: 21px;
-    background: #1F3641;
+    /* background: #1F3641; */
     border-radius: 15px;
     padding-left: 9px;
     margin-bottom: 20px;
 
 }
 
-#XO {
+/* #XO {
     height: 20px;
-}
+} */
 
 .turn {
 
@@ -180,7 +180,7 @@ body {
 /* Hover starts*/
 .return:hover {
     cursor: pointer;
-    background-color: #dbe8ed;
+    background-color: #DBE8ED;
 }
 
 .box:hover {
@@ -190,7 +190,7 @@ body {
     background-position: 30px;
 }
 #next-round:hover {
-    background-color: #ffc860;
+    background-color: #FFC860;
     cursor: pointer;
 }
 #quit:hover {
@@ -284,6 +284,10 @@ body {
     html {
         font-size: 56.25%;
     }
+    .turn{
+        width: 36.4%;
+        font-size: 25px;
+    }
 }
 
 @media only screen and (max-width: 320px) {
@@ -311,10 +315,6 @@ body {
     }
     .xo{
         margin-left: -5px;
-    }
-    .turn{
-        margin-left: -18px;
-        /* width: 36.4%; */
     }
     .return{
         margin-left: 10px;
@@ -367,9 +367,10 @@ body {
     }
     .header{
         width: 350px;
-        margin-left: -130px;
+        margin-left: -150px;
         justify-content: space-between;
     }
+
 }
  @media only screen and (max-width: 375px) {
     .boxes {
@@ -386,8 +387,8 @@ body {
         justify-content: space-between;
     }
     .header{
-        width: 300px;
-        margin-left: -50px;
+        width: 310px;
+        margin-left: -65px;
         justify-content: space-between;
     }
     .you{
