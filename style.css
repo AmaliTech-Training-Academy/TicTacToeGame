@@ -346,6 +346,7 @@ body {
         grid-template-columns: repeat(3, minmax(50px, 1fr));
         grid-template-rows: repeat(3, minmax(50px, 1fr));
         margin-left: -70px;
+        gap: clamp(1rem, 1vw, 2rem);
     }
     .box {
         padding: 2.8rem;
@@ -362,6 +363,7 @@ body {
         grid-template-columns: repeat(3, minmax(120px, 1fr));
         grid-template-rows: repeat(3, minmax(120px, 1fr));
         margin-left: -150px;
+        gap: clamp(1rem, 1vw, 2rem);
     }
     .footer{
         width: 350px;
