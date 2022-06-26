@@ -1,5 +1,9 @@
 * {
     box-sizing: border-box;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    margin: 0;
+    padding: 0;
 }
 
 body {
@@ -12,11 +16,18 @@ body {
     flex-direction: column;
     height: 100vh;
     gap: 2vh;
+    /* background-color: #dbe8ed; */
+}
+
+/* ernest edits */
+#gameplay {
+    position: relative;
+    height: 80vh;
 }
 
 .body {
     /* padding-inline: 25%; */
-    width: 40%;
+    /* width: 40%; */
     /* height: 100vh; */
     height: 80%;
     justify-self: center;
@@ -139,7 +150,7 @@ body {
 }
 
 
-#num {
+.num {
     display: flex;
     flex-direction: column;
     padding-top: 5px;
@@ -189,6 +200,71 @@ body {
     background-repeat: no-repeat;
     background-position: center;
 }
+
+.states {
+    z-index: 1;
+    font-family: 'Outfit', sans-serif;
+    visibility: hidden;
+    position: fixed;
+    top: 50%;
+    margin-top: -133px;
+    left: 0;
+    background-color: #1F3641;
+    /* background-color: pink ; */
+    /* color:#F2B137; */
+    width: 100vw;
+    height: 266px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#state-text {
+    font-size: 16px;
+    color: #A8BFC9;
+}
+
+.states-message {
+    /* width: 400px; */
+    /* background-color: #6B8997; */
+    display: flex;
+    column-gap: 24px;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+#ttr {
+    font-size: 40px;
+}
+
+.states-buttons {
+    display: flex;
+    gap: 16px;
+    color: #1A2A33;
+    margin-top: 16px;
+
+}
+
+#quit {
+    font-size: 16px;
+    width: 76px;
+    height: 52px;
+    background: #A8BFC9;
+    box-shadow: inset 0px -4px 0px #6B8997;
+    border-radius: 10px;
+}
+
+#next-round {
+    font-size: 16px;
+    width: 146px;
+    height: 52px;
+    background: #F2B137;
+    box-shadow: inset 0px -4px 0px #CC8B13;
+    border-radius: 10px;
+}
+
+
 /* ernest add ends here */
 
 
