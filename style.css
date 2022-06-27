@@ -8,22 +8,20 @@
 
 body {
     background-color: #1A2A33;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .body {
-    padding: 5rem;
-    width: 460px;
-    height: 623px;
-    /* display: flex;
+    display: flex;
     justify-content: center;
-    align-items: center; */
+    /* align-items: center; */
+    width: 100vw;
+    height: 100vh;
+    padding-top: 7rem;
 }
 
 .gameplay {
     width: 460px;
+    height: 623px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -164,8 +162,6 @@ body {
     font-size: 10px;
     font-weight: 15px;
     font: 10px;
-
-
 }
 
 
@@ -175,8 +171,6 @@ body {
     padding-top: 5px;
     font-weight: 600;
 }
-
-
 
 /* Hover starts*/
 .return:hover {
@@ -190,16 +184,16 @@ body {
     background-repeat: no-repeat;
     background-position: 50%;
 }
+
 #next-round:hover {
     background-color: #ffc860;
     cursor: pointer;
 }
+
 #quit:hover {
     background-color: #65e9e4;
     cursor: pointer;
 }
-
-
 /* Hover ends */
 
 
@@ -298,4 +292,18 @@ body {
 }
 
 /* ernest add ends here */
+@media only screen and (max-width: 475px) {
+    .gameplay {
+        width: 328px;
+        height: 623px;
+    }
 
+    #ttr, #restart-ttr {
+        font-size: 24px;
+    }
+
+    #win-icon {
+        /* width: 28px;
+        height: 28px; */
+    }
+}
