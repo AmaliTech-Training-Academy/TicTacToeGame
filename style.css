@@ -7,83 +7,102 @@
 }
 
 body {
-    font-family: 'Outfit', 'sans-serif';  
-    /* height: 100vh;  */
-    align-items: center;
-    margin: 0;
     background-color: #1A2A33;
     display: flex;
-    flex-direction: column;
-    height: 100vh;
-    gap: 2vh;
-    /* background-color: #dbe8ed; */
-}
-
-/* ernest edits */
-#gameplay {
-    position: relative;
-    height: 80vh;
+    justify-content: center;
+    align-items: center;
 }
 
 .body {
-    /* padding-inline: 25%; */
-    /* width: 40%; */
-    /* height: 100vh; */
-    height: 80%;
-    justify-self: center;
-    align-self: center;
     padding: 5rem;
+    width: 460px;
+    height: 623px;
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+}
+
+.gameplay {
+    width: 460px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 
-.header,
+.header {
+    /* background-color: white; */
+    width: 100%;
+    height: 52px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.boxes {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(.5rem, 2vw, 2rem);
+}
+
+.box {
+    border-radius: 15px;
+    aspect-ratio: 1;
+    background: #1F3641;
+    box-shadow: 0px -8px 0px 0px #10212A inset;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .footer {
     width: 100%;
+    margin-top: 20px;
     display: flex;
     justify-content: space-between;
 }
 
-/* updated id name from 'x' to 'turn-icon' */
-#turn-icon img {
-    height: 15px;
-}
-
-#turn {
+.turn {
+    margin-left: -23px;
     color: #A8BFC9;
-    /* letter-spacing: 0.5px; */
-
+    display: flex;
+    justify-content: center;
+    column-gap: 5px;
+    align-items: center;
+    width: 140px;
+    height: 52px;
+    background-color: #1F3641;
+    box-shadow: inset 0px -4px 0px #10212A;
+    border-radius: 10px;
 }
 
-.xo {
-    padding-top: 21px;
-    /* background: #1F3641; */
-    border-radius: 15px;
-    padding-left: 9px;
-    margin-bottom: 20px;
-
+#turn-icon-img {
+    height: 15px;
+    filter: invert(79%) sepia(32%) saturate(145%) hue-rotate(153deg) brightness(90%) contrast(89%);
 }
 
-/* #XO {
+
+.return {
+    width: 52px;
+    height: 52px;
+    background-color: #A8BFC9;
+    box-shadow: inset 0px -4px 0px #6B8997;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.return img {
+    width: 20px;
     height: 20px;
 } */
 
-.turn {
-
-    background: #1F3641;
-    border-radius: 15px;
-    align-self: center;
-    padding: 20px;
-    margin-bottom: 20px;
-    box-shadow: inset 0 -0.4rem 0 #0f191e;
-
-}
-
-/* .return {
-    height: 40px;
-} */
-
 .you {
-    background: #31C3BD;
+    background-color: #31C3BD;
     border-radius: 15px;
     margin: 10px;
     margin-right: 20px;
@@ -155,24 +174,6 @@ body {
     flex-direction: column;
     padding-top: 5px;
     font-weight: 600;
-
-}
-
-.boxes {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: clamp(.5rem, 1vw, 2rem);
-}
-
-.box {
-    border-radius: 15px;
-    /* background-color: red; */
-    aspect-ratio: 1;
-    background: #1F3641;
-    box-shadow: 0px -8px 0px 0px #10212A inset;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 
@@ -187,7 +188,7 @@ body {
     cursor: pointer;
     background: url(./starter-code/assets/icon-x-outline.svg);
     background-repeat: no-repeat;
-    background-position: 30px;
+    background-position: 50%;
 }
 #next-round:hover {
     background-color: #FFC860;
@@ -248,7 +249,7 @@ body {
     align-items: center;
 }
 
-#ttr {
+#ttr, #restart-ttr {
     font-size: 40px;
 }
 
@@ -278,9 +279,25 @@ body {
     border-radius: 10px;
 }
 
+#restart {
+    font-size: 16px;
+    width: 146px;
+    height: 52px;
+    background: #F2B137;
+    box-shadow: inset 0px -4px 0px #CC8B13;
+    border-radius: 10px;
+}
+
+#cancel {
+    font-size: 16px;
+    width: 146px;
+    height: 52px;
+    background: #A8BFC9;
+    box-shadow: inset 0px -4px 0px #6B8997;
+    border-radius: 10px;
+}
 
 /* ernest add ends here */
-
 
 /* media starts */
 @media only screen and (max-width: 600px) {
@@ -448,6 +465,3 @@ body {
 }  
 } 
 /* Media queries ends */
-
-
-

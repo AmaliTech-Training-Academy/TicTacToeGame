@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;700&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">    
+    <title>Tic Toc Toc</title>
+</head>
+<body>
+ 
+     <!-- Game board start -->
+<div class="body">
+    <section id="gameplay-id" class="gameplay">
+        <div class="header">
+            <div class="xo">
+                <svg id="XO" width="72" height="32" viewBox="0 0 72 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g id="Group 2">
+                <path id="Combined Shape Copy" fill-rule="evenodd" clip-rule="evenodd" d="M27.681 1.63437C26.5094 0.462798 24.6099 0.4628 23.4383 1.63437L16 9.07271L8.56166 1.63437C7.39009 0.462798 5.49059 0.4628 4.31902 1.63437L1.63437 4.31902C0.462799 5.49059 0.462801 7.39009 1.63437 8.56166L9.07271 16L1.63437 23.4383C0.462798 24.6099 0.4628 26.5094 1.63437 27.681L4.31902 30.3656C5.49059 31.5372 7.39009 31.5372 8.56166 30.3656L16 22.9273L23.4383 30.3656C24.6099 31.5372 26.5094 31.5372 27.681 30.3656L30.3656 27.681C31.5372 26.5094 31.5372 24.6099 30.3656 23.4383L22.9273 16L30.3656 8.56166C31.5372 7.39009 31.5372 5.49059 30.3656 4.31902L27.681 1.63437Z" fill="#31C3BD"/>
+                <path id="Oval Copy" fill-rule="evenodd" clip-rule="evenodd" d="M71.9704 15.8706C71.9704 7.10551 64.8649 0 56.0998 0C47.3348 0 40.2292 7.10551 40.2292 15.8706C40.2292 24.6357 47.3348 31.7412 56.0998 31.7412C64.8649 31.7412 71.9704 24.6357 71.9704 15.8706ZM49.634 15.8706C49.634 12.2996 52.5289 9.4048 56.0998 9.4048C59.6708 9.4048 62.5656 12.2996 62.5656 15.8706C62.5656 19.4416 59.6708 22.3364 56.0998 22.3364C52.5289 22.3364 49.634 19.4416 49.634 15.8706Z" fill="#F2B137"/>
+                </g>
+                </svg>
+            </div>
+            <div class="turn"> 
+                <img id="turn-icon-img" src="./starter-code/assets/icon-x-grey.svg" alt="turn-icon">
+                <span id="turn">TURN</span> 
+            </div>
+            <div id="restart-icon" class="return"><img src="./starter-code/assets/icon-restart.svg" alt="return"></div>
+        </div>
+        <div id="gameplay-board" class="boxes">
+            <div class="box" id="box1"></div>
+            <div class="box" id="box2"></div>
+            <div class="box" id="box3"></div>
+            <div class="box" id="box4"></div>
+            <div class="box" id="box5"></div>
+            <div class="box" id="box6"></div>
+            <div class="box" id="box7"></div>
+            <div class="box" id="box8"></div>
+            <div class="box" id="box9"></div>
+        </div>
+        <div class="footer">
+            <div class="you"><span id="you">X (YOU)</span><span class="num" id="player-score">0</span></div>
+            <div class="ties"><span id="ties">TIES</span><span  class="num" id="ties-count">0</span></div>
+            <div class="ocpu"><span id="cpu">O (CPU)</span><span class="num" id="cpu-score">0</span></div>
+        </div>
+    </section>
+    <div id="states" class="states">
+        <p id="state-text">xxxx</p>
+        <div id="states-message" class="states-message">
+            <span id="win-icon"></span>
+            <span id="ttr">TAKES THIS ROUND</span>
+        </div>
+        <div class="states-buttons">
+            <a href="./index.html"><button id="quit">QUIT</button></a>
+            <button id="next-round">NEXT ROUND</button>
+        </div>
+    </div>
+    <div id="restart-states" class="states">
+        <div id="restart-states-message" class="states-message">
+            <span id="restart-ttr">TAKES THIS ROUND</span>
+        </div>
+        <div class="states-buttons">
+            <button id="cancel">NO, CANCEL</button>
+            <a href="./index.html"><button id="restart">YES, RESTART</button></a>
+        </div>
+    </div>
+    
+
+</div>
+     <!-- Game board Ends -->
+  <!-- x/o icon --> 
+
+   <!-- Your score -->
+   <!-- Ties score -->
+   <!-- CPU score -->
+
+  <!-- Oh no, you lost
+  You won!
+  Player  -->
+  <!-- 1/2 wins!
+
+  x/o icon takes the round
+  Round tied
+  Restart game?
+
+  Quit
+  Next round
+  No, cancel
+  Yes, restart -->
+
+  <!-- Game board end -->
+
+
+  <script src="./singleplayer.js"></script>
+
+</body>
+</html>

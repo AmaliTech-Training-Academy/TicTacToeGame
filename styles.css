@@ -1,5 +1,8 @@
 * {
     box-sizing: border-box;
+    font-family: 'Outfit', sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
 body {
@@ -24,7 +27,6 @@ body {
     left: 34%; */
 
 }
-
 
 p { 
     color: #A8BFC9; 
@@ -69,33 +71,54 @@ p {
     margin-top: 10px;
     width: 460px;
     height: 205px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
     
 }
 
 .toggle {
-    padding-left: 90px;
-    padding-right: 2px;
+    /* padding-left: 90px; */
+    /* padding-right: 2px; */
     background-color: #1A2A33;
-    width: 425px;
+    width: 412px;
     height: 72px;
     border-radius: 10px;
-    margin-left: 20px;
+    /* margin-left: 20px; */
+    /* ernest code */
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;   
+}
+
+.x-img {
+    display: flex;
+    width: 198px;
+    height: 54px;
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.o-img {
+    display: flex;
+    background-color: #A8BFC9;
+    width: 198px;
+    height: 54px;
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
 }
 
 #x{
-    padding-left: 10px;
-    padding-right: 20px;
-    margin: 5px;
-    margin-bottom: 30px;
-    padding-top: 15px;
-    margin-right: 40px;
+    height: 32px;
+    filter: invert(79%) sepia(32%) saturate(145%) hue-rotate(153deg) brightness(90%) contrast(89%);
 }
 
 #o{
-    
-    margin-left: 5px;
-    margin-bottom: 18px;
-    
+    height: 32px;
+    filter: invert(12%) sepia(12%) saturate(1823%) hue-rotate(157deg) brightness(96%) contrast(90%);
 }
 
 .new{
@@ -142,99 +165,5 @@ p {
     
 }
 /* Hover  start*/
-#x:hover {
-    background-color: #1b303a;
-    cursor: pointer;
-}
 
-#cpu:hover {
-    background-color: #ffc860;
-    cursor: pointer;
-}
-#player:hover {
-    background-color: #65e9e4;
-    cursor: pointer;
-}
-/* Hover end */
-
-/* media start  */
-@media only screen and (max-width: 380px) {
-.container{
-    width: 70%;
-}
-.XO{
-        margin-left: 100px;
-}
-.rectangle{
-    width: 300px;
-    margin-left: 100px;
-}
-.toggle{
-    width: 130px;
-}
-#x{
-    margin-left: -40px;
-}
-#o{
-    margin: -100px 50px;
-    margin-bottom: 30px;
-    width: inherit;
-    height: 70px;
-}
-.new{
-    width:150px ;
-}
-#cpu {
-    width: 300px;
-    margin-left: 120px;
-}
-#player{
-    width: 300px;
-    margin-left: 120px;
-}
-
-}
-
-@media only screen and (min-width: 400px) {
-    .container{
-        width: 90%;
-    }
-    .XO{
-            margin-left: 100px;
-    }
-    .rectangle{
-        width: 380px;
-        margin-left: 50px;
-    }
-    .toggle{
-        width: 160px;
-    }
-    #x{
-        margin-left: -30px;
-    }
-    #o{
-        margin: -100px 80px;
-        margin-bottom: 30px;
-        width: inherit;
-        height: 70px;
-    }
-    .new{
-        width:200px ;
-    }
-    #cpu {
-        width: 400px;
-        margin-left: 75px;
-    }
-    #player{
-        width: 400px;
-        margin-left: 75px;
-    }
-    
-    }
-
-
-
-/* .playerX {
-    
-} */
 
