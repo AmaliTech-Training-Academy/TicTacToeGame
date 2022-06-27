@@ -249,7 +249,7 @@ body {
     align-items: center;
 }
 
-#ttr {
+#ttr, #restart-ttr {
     font-size: 40px;
 }
 
@@ -279,6 +279,23 @@ body {
     border-radius: 10px;
 }
 
+#restart {
+    font-size: 16px;
+    width: 146px;
+    height: 52px;
+    background: #F2B137;
+    box-shadow: inset 0px -4px 0px #CC8B13;
+    border-radius: 10px;
+}
+
+#cancel {
+    font-size: 16px;
+    width: 146px;
+    height: 52px;
+    background: #A8BFC9;
+    box-shadow: inset 0px -4px 0px #6B8997;
+    border-radius: 10px;
+}
 
 /* ernest add ends here */
 
