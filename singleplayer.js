@@ -15,10 +15,12 @@ window.addEventListener('DOMContentLoaded', () => {
             document.getElementById('restart-ttr').innerHTML = 'RESTART GAME?'
             document.getElementById('restart-ttr').style.color = '#A8BFC9'
             document.getElementById('restart-states').style.visibility = 'visible'
+            overlay.style.visibility = 'visible'
             
             let cancelBtn = document.getElementById('cancel')
             cancelBtn.addEventListener('click', function(){
                 document.getElementById('restart-states').style.visibility = 'hidden' 
+                overlay.style.visibility = 'hidden'
             })
         }
     
