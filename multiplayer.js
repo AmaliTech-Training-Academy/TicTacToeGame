@@ -5,6 +5,7 @@ window.addEventListener('DOMContentLoaded', () => {
     let p1Score = Number(document.getElementById('player-score').innerHTML);
     let tiesCount = Number(document.getElementById('ties-count').innerHTML);
     let p2Score = Number(document.getElementById('cpu-score').innerHTML);
+    let userHover = document.getElementsByClassName('box')
     let restartBtn = document.getElementById('restart-icon')
 
     const restartState = () => {
@@ -21,6 +22,38 @@ window.addEventListener('DOMContentLoaded', () => {
     restartBtn.addEventListener('click', restartState)
 
     const boxes = Array.from(document.querySelectorAll('.box'));
+
+    const changeIcon = () => {
+        const a = p1
+        p1 = p2
+        p2 = a
+    }
+    
+    //set current player based on selected starting icon
+    let currentPlayer;
+
+    if (p1[2] == "playerO") {
+        currentPlayer = p2
+    } else {
+        currentPlayer = p1
+    }
+
+    const hover = (item) => {
+        if (currentPlayer[2] == 'playerO') {
+            item.style.backgroundImage = 'url(./starter-code/assets/icon-o-outline.svg)' 
+        } else {
+            item.style.backgroundImage = 'url(./starter-code/assets/icon-x-outline.svg)' 
+        }
+        item.style.backgroundRepeat = 'no-repeat'
+        item.style.backgroundPosition = '50%'
+    }
+
+    for (let i = 0; i < userHover.length; i++){
+        userHover[i].addEventListener('mouseenter', (user) => hover(userHover[i], user))
+        userHover[i].addEventListener('mouseleave', () => {
+            userHover[i].style.backgroundImage = ''
+        } )
+    }
 
     const tiedState = () => {
         tiesCount += 1
@@ -47,7 +80,10 @@ window.addEventListener('DOMContentLoaded', () => {
     restartBtn.addEventListener('click', restartState)
     
     const nextRound = document.getElementById('next-round')
-    nextRound.addEventListener('click', clrScreen)
+    nextRound.addEventListener('click', () => {
+        clrScreen()
+        changeIcon()
+    })
 
         //WIN, LOSE AND TIED STATE
     const WIN_COMBOS = [
@@ -74,16 +110,6 @@ window.addEventListener('DOMContentLoaded', () => {
     const boardFull = () => {
         return boxes.every((val) => 
         val.classList.contains(p1[2]) || val.classList.contains(p2[2]))
-    }
-
-
-    //set current player based on selected starting icon
-    let currentPlayer;
-
-    if (p1[2] == "playerX") {
-        currentPlayer = p1
-    } else {
-        currentPlayer = p2
     }
 
     // this function must check the class not the innerHTML
@@ -141,6 +167,7 @@ window.addEventListener('DOMContentLoaded', () => {
                 return
             }
             changePlayer();
+            changeIcon()
             if (boardFull()) {
                 tiedState()
             }
