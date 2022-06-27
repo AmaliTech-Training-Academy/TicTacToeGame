@@ -6,31 +6,6 @@ window.addEventListener('DOMContentLoaded', () => {
         let userScore = Number(document.getElementById('player-score').innerHTML);
         let tiesCount = Number(document.getElementById('ties-count').innerHTML);
         let cpuScore = Number(document.getElementById('cpu-score').innerHTML);
-        let userHover = document.getElementsByClassName('box')
-
-        const changeIcon = () => {
-            const a = user
-            user = computer
-            computer = a
-        }
-
-        const hover = (item) => {
-            if (user[2] == 'playerO') {
-                item.style.backgroundImage = 'url(./starter-code/assets/icon-o-outline.svg)' 
-            } else {
-                item.style.backgroundImage = 'url(./starter-code/assets/icon-x-outline.svg)' 
-            }
-            item.style.backgroundRepeat = 'no-repeat'
-            item.style.backgroundPosition = '50%'
-        }
-
-        for (let i = 0; i < userHover.length; i++){
-            userHover[i].addEventListener('mouseenter', (user) => hover(userHover[i], user))
-            userHover[i].addEventListener('mouseleave', () => {
-                userHover[i].style.backgroundImage = ''
-            } )
-        }
-
 
         let restartBtn = document.getElementById('restart-icon')
 
@@ -177,10 +152,7 @@ window.addEventListener('DOMContentLoaded', () => {
             }
             // next round functionality
             const nextRound = document.getElementById('next-round')
-            nextRound.addEventListener('click', () => {
-                clrScreen()
-                changeIcon()
-            })
+            nextRound.addEventListener('click', clrScreen)
              
             // const highLight = (combo) => {
             //         combo.forEach((idx) => box[idx].classList.add("highlight"))
