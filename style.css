@@ -15,7 +15,7 @@ body {
     justify-content: center;
     /* align-items: center; */
     width: 100vw;
-    height: 100vh;
+    height: 90vh;
     padding-top: 7rem;
 }
 
@@ -302,8 +302,7 @@ body {
         font-size: 24px;
     }
 
-    #win-icon {
-        /* width: 28px;
-        height: 28px; */
+    .body {
+        padding-top: 2rem;
     }
 }
