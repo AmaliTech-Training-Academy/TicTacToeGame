@@ -1,0 +1,308 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #1A2A33;
+}
+
+.body {
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    width: 100vw;
+    height: 90vh;
+    padding-top: 7rem;
+}
+
+.gameplay {
+    width: 460px;
+    height: 623px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.header {
+    /* background-color: white; */
+    width: 100%;
+    height: 52px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.boxes {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(.5rem, 2vw, 2rem);
+}
+
+.box {
+    border-radius: 15px;
+    aspect-ratio: 1;
+    background: #1F3641;
+    box-shadow: 0px -8px 0px 0px #10212A inset;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer {
+    width: 100%;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.turn {
+    margin-left: -23px;
+    color: #A8BFC9;
+    display: flex;
+    justify-content: center;
+    column-gap: 5px;
+    align-items: center;
+    width: 140px;
+    height: 52px;
+    background-color: #1F3641;
+    box-shadow: inset 0px -4px 0px #10212A;
+    border-radius: 10px;
+}
+
+#turn-icon-img {
+    height: 15px;
+    filter: invert(79%) sepia(32%) saturate(145%) hue-rotate(153deg) brightness(90%) contrast(89%);
+}
+
+
+.return {
+    width: 52px;
+    height: 52px;
+    background-color: #A8BFC9;
+    box-shadow: inset 0px -4px 0px #6B8997;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.return img {
+    width: 20px;
+    height: 20px;
+}
+
+.you {
+    background-color: #31C3BD;
+    border-radius: 15px;
+    margin: 10px;
+    margin-right: 20px;
+    width: 140px;
+    height: 72px;
+    text-align: center;
+    padding-top: 5px;
+}
+
+#you {
+    display: flex;
+    flex-direction: column;
+    padding-top: 5px;
+    color: #1A2A33;
+    font-size: 10px;
+    font-weight: 15px;
+    font: 10px;
+    /* text-align: center; */
+
+}
+
+.ties {
+    background-color: #A8BFC9;
+    border-radius: 10px;
+    margin: 10px;
+    margin-right: 15px;
+    width: 140px;
+    height: 72px;
+    text-align: center;
+    padding-top: 5px;
+
+}
+
+#ties {
+
+    font-family: Outfit;
+    font-size: 10px;
+    font-weight: 15px;
+    font: 10px;
+}
+
+.ocpu {
+    background-color: #F2B137;
+    border-radius: 15px;
+    margin: 10px;
+    margin-right: 10px;
+    width: 140px;
+    height: 72px;
+    left: 491px;
+    top: 690px;
+    text-align: center;
+    padding-top: 5px;
+}
+
+#cpu {
+    display: flex;
+    flex-direction: column;
+    padding-top: 5px;
+    font-size: 10px;
+    font-weight: 15px;
+    font: 10px;
+}
+
+
+.num {
+    display: flex;
+    flex-direction: column;
+    padding-top: 5px;
+    font-weight: 600;
+}
+
+/* Hover starts*/
+.return:hover {
+    cursor: pointer;
+    background-color: #dbe8ed;
+}
+
+.box:hover {
+    cursor: pointer;
+    background: url(./starter-code/assets/icon-x-outline.svg);
+    background-repeat: no-repeat;
+    background-position: 50%;
+}
+
+#next-round:hover {
+    background-color: #ffc860;
+    cursor: pointer;
+}
+
+#quit:hover {
+    background-color: #65e9e4;
+    cursor: pointer;
+}
+/* Hover ends */
+
+
+/* ernest add starts here */
+.playerX {
+    background-image: url(./starter-code/assets/icon-x.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.playerO {
+    background-image: url(./starter-code/assets/icon-o.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.states {
+    z-index: 1;
+    font-family: 'Outfit', sans-serif;
+    visibility: hidden;
+    position: fixed;
+    top: 50%;
+    margin-top: -133px;
+    left: 0;
+    background-color: #1F3641;
+    /* background-color: pink ; */
+    /* color:#F2B137; */
+    width: 100vw;
+    height: 266px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#state-text {
+    font-size: 16px;
+    color: #A8BFC9;
+}
+
+.states-message {
+    /* width: 400px; */
+    /* background-color: #6B8997; */
+    display: flex;
+    column-gap: 24px;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+#ttr, #restart-ttr {
+    font-size: 40px;
+}
+
+.states-buttons {
+    display: flex;
+    gap: 16px;
+    color: #1A2A33;
+    margin-top: 16px;
+
+}
+
+#quit {
+    font-size: 16px;
+    width: 76px;
+    height: 52px;
+    background: #A8BFC9;
+    box-shadow: inset 0px -4px 0px #6B8997;
+    border-radius: 10px;
+}
+
+#next-round {
+    font-size: 16px;
+    width: 146px;
+    height: 52px;
+    background: #F2B137;
+    box-shadow: inset 0px -4px 0px #CC8B13;
+    border-radius: 10px;
+}
+
+#restart {
+    font-size: 16px;
+    width: 146px;
+    height: 52px;
+    background: #F2B137;
+    box-shadow: inset 0px -4px 0px #CC8B13;
+    border-radius: 10px;
+}
+
+#cancel {
+    font-size: 16px;
+    width: 146px;
+    height: 52px;
+    background: #A8BFC9;
+    box-shadow: inset 0px -4px 0px #6B8997;
+    border-radius: 10px;
+}
+
+/* ernest add ends here */
+@media only screen and (max-width: 475px) {
+    .gameplay {
+        width: 328px;
+        height: 623px;
+    }
+
+    #ttr, #restart-ttr {
+        font-size: 24px;
+    }
+
+    .body {
+        padding-top: 2rem;
+    }
+}
