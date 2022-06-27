@@ -97,15 +97,13 @@ body {
 }
 
 .return img {
-    width: 20px;
-    height: 20px;
-} */
+    width: 30px;
+    height: 30px;
+}
 
-.you {
+ .you {
     background-color: #31C3BD;
-    border-radius: 15px;
-    margin: 10px;
-    margin-right: 20px;
+    border-radius: 10px;
     width: 140px;
     height: 72px;
     text-align: center;
@@ -116,12 +114,12 @@ body {
     display: flex;
     flex-direction: column;
     padding-top: 5px;
-    color: #1A2A33;
+    /* color: #1A2A33; */
     font-size: 10px;
     font-weight: 15px;
     font: 10px;
-    /* text-align: center; */
-
+    text-align: center;
+    /* margin: 10px; */
 }
 
 .ties {
@@ -190,10 +188,12 @@ body {
     background-repeat: no-repeat;
     background-position: 50%;
 }
+
 #next-round:hover {
     background-color: #FFC860;
     cursor: pointer;
 }
+
 #quit:hover {
     background-color: #65e9e4;
     cursor: pointer;
@@ -249,7 +249,8 @@ body {
     align-items: center;
 }
 
-#ttr, #restart-ttr {
+#ttr,
+#restart-ttr {
     font-size: 40px;
 }
 
@@ -304,7 +305,8 @@ body {
     html {
         font-size: 56.25%;
     }
-    .turn{
+
+    .turn {
         width: 36.4%;
         font-size: 25px;
     }
@@ -313,49 +315,54 @@ body {
 @media only screen and (max-width: 320px) {
     html {
         font-size: 20px;
-    width: 40%;
-    margin-top: -50px;
-}
+        width: 40%;
+        margin-top: -50px;
+    }
 }
 
 @media screen and (min-width: 700px) {
-.body{
-    width: 400px;
-}
+    .body {
+        width: 400px;
+    }
 }
 
 
 @media screen and (max-width: 320px) {
-    .body{
+    .body {
         width: 20%;
     }
-   
-    .footer{
+
+    .footer {
         width: 400px;
     }
-    .xo{
+
+    .xo {
         margin-left: -5px;
     }
-    .return{
+
+    .return {
         margin-left: 10px;
-        margin-right: -10px; 
+        margin-right: -10px;
     }
-    .you{
+
+    .you {
         margin-left: -70px;
         margin-right: -10px;
         width: 90%;
     }
-    .ties{
+
+    .ties {
         margin-left: 30px;
         margin-right: 5px;
         width: 90%;
     }
-    .ocpu{
+
+    .ocpu {
         /* margin-right: 5px;
         margin-left: 5px; */
         width: 90%;
-    } 
-   
+    }
+
 }
 
 @media only screen and (min-width: 600px) {
@@ -365,103 +372,129 @@ body {
         margin-left: -70px;
         gap: clamp(1rem, 1vw, 2rem);
     }
+
     .box {
         padding: 2.8rem;
     }
 }
-    
+
 
 @media only screen and (max-width: 600px) {
-    .body{
+    .body {
         width: 40%;
         height: 400px;
     }
+
     .boxes {
         grid-template-columns: repeat(3, minmax(120px, 1fr));
         grid-template-rows: repeat(3, minmax(120px, 1fr));
         margin-left: -150px;
         gap: clamp(1rem, 1vw, 2rem);
     }
-    .footer{
-        width: 350px;
+
+    .footer {
+        /* width: 350px; */
         margin-left: -130px;
         justify-content: space-between;
     }
-    .header{
-        width: 350px;
+
+    .header {
+        /* width: 350px; */
         margin-left: -150px;
         justify-content: space-between;
     }
+    .you{
+        margin-top: 10px;
+    }
 
 }
- @media only screen and (max-width: 375px) {
+
+@media only screen and (max-width: 375px) {
     .boxes {
         grid-template-columns: repeat(3, minmax(100px, 1fr));
         grid-template-rows: repeat(3, minmax(100px, 1fr));
         margin-left: -60px;
     }
-    .body{
+
+    .body {
         width: 70%;
     }
-    .footer{
-        width: 300px;
+
+    .footer {
+        width: 420px;
         margin-left: -30px;
         justify-content: space-between;
     }
-    .header{
-        width: 310px;
+
+    .header {
+        width: 420px;
         margin-left: -65px;
         justify-content: space-between;
     }
-    .you{
-      width:200%;
-      margin-left: -25px;
-      margin-right: 30px;
-   }
-  .ties{
-    margin-left: -10px; 
- width: 200%;
+
+    .you {
+        width: 200%;
+        margin-top: 10px;
+        margin-left: -25px;
+        margin-right: 30px;
+    }
+
+    .ties {
+        margin-left: -10px;
+        width: 200%;
+    }
+
+    .ocpu {
+        margin-right: -8px;
+        /* margin-left: 5px;  */
+        width: 200%;
+    }
+
+    .turn {
+        font-size: 20px;
+    }
 }
-.ocpu{ 
-    margin-right: 20px;
-    /* margin-left: 5px;  */
-     width: 200%;
-}  
-.turn{
-    font-size: 20px;
-}
-} 
 
 @media only screen and (min-width: 700px) {
     .boxes {
         width: 400px;
     }
+
     /* .body{
         width: 70%;
     } */
-    .footer{
-        margin-left: -40px;
+    .footer {
+        margin-left: -70px;
         justify-content: space-between;
         width: 340px;
     }
-    .header{
+
+    .header {
         width: 380px;
         margin-left: -50px;
         justify-content: space-between;
     }
-    .you{
-      width:80%;
-      margin-left: -30px;
-      margin-right: 30px;
-   }
-  .ties{
-    margin-left: -5px; 
- width: 80%;
+
+    .you {
+        width: 80%;
+        margin-left: -30px;
+        margin-right: 30px;
+        margin-top: 10px;
+        /* background-color: #31c3bd;
+      border-radius: 15px; */
+        /* height: 5px; */
+    }
+
+    .ties {
+        margin-left: -5px;
+        width: 80%;
+    }
+
+    .ocpu {
+        margin-right: -30px;
+        margin-left: 20px;
+        width: 80%;
+    }
 }
-.ocpu{ 
-    margin-right: -30px;
-    margin-left: 20px; 
-     width: 80%;
-}  
-} 
+
 /* Media queries ends */
