@@ -1,28 +1,30 @@
-//Gideon ============Solo vs CPU
-// import { user, userClass, computer, computerClass } from './index.js'
-
 window.addEventListener('DOMContentLoaded', () => {
     const gameBoard = (() => {
         let user = JSON.parse(sessionStorage.getItem("user"))
-        let userClass = sessionStorage.getItem("userClass")
         let computer = JSON.parse(sessionStorage.getItem("computer"))
-        let computerClass = sessionStorage.getItem("computerClass")
-        //score tracking
-        // let userScoreUnit = document.getElementById
+        
         let userScore = Number(document.getElementById('player-score').innerHTML);
         let tiesCount = Number(document.getElementById('ties-count').innerHTML);
         let cpuScore = Number(document.getElementById('cpu-score').innerHTML);
 
+        let restartBtn = document.getElementById('restart-icon')
+
+        const restartState = () => {
+            document.getElementById('restart-ttr').innerHTML = 'RESTART GAME?'
+            document.getElementById('restart-ttr').style.color = '#A8BFC9'
+            document.getElementById('restart-states').style.visibility = 'visible'
+            
+            let cancelBtn = document.getElementById('cancel')
+            cancelBtn.addEventListener('click', function(){
+                document.getElementById('restart-states').style.visibility = 'hidden' 
+            })
+        }
     
+        restartBtn.addEventListener('click', restartState)
+
         const boxes = document.querySelectorAll(".box");
         let box = Array.from(boxes);
         
-
-
-        //TODO 
-        // turn and turn-icon update
-        // restart game
-
 
         const tiedState = () => {
             tiesCount += 1
@@ -38,8 +40,8 @@ window.addEventListener('DOMContentLoaded', () => {
         //clear screen
         const clrScreen = () => box.forEach((item) => {
             try {
-                item.classList.remove(userClass)
-                item.classList.remove(computerClass)
+                item.classList.remove(user[2])
+                item.classList.remove(computer[2])
                 document.getElementById('states').style.visibility = 'hidden'
             } catch (error) {
                 console.log(error)
@@ -72,7 +74,7 @@ window.addEventListener('DOMContentLoaded', () => {
     
         const boardFull = () => {
             return box.every((val) => 
-            val.classList.contains(userClass) || val.classList.contains(computerClass))
+            val.classList.contains(user[2]) || val.classList.contains(computer[2]))
         }
         // console.log(boardFull())
 
@@ -85,19 +87,19 @@ window.addEventListener('DOMContentLoaded', () => {
                 let play = Math.floor(Math.random() * box.length);
                 // console.log(`first play value ${play}`)
                 //problem here... loops forever at last point
-                while(box[play].classList.contains(userClass) || box[play].classList.contains(computerClass)){
-                  if (boardFull() && !checkWin(userClass) && !checkWin(computerClass)) {
+                while(box[play].classList.contains(user[2]) || box[play].classList.contains(computer[2])){
+                  if (boardFull() && !checkWin(user[2]) && !checkWin(computer[2])) {
                     tiedState()
                     return
-                  } else if (boardFull() && (checkWin(userClass) || checkWin(computerClass))) {
+                  } else if (boardFull() && (checkWin(user[2]) || checkWin(computer[2]))) {
                     return
                   }
                   play = Math.floor(Math.random() * box.length);
                 //   console.log(`second play value ${play}`)
 
                 }
-                box[play].classList.add(computerClass)
-                if (checkWin(computerClass)){
+                box[play].classList.add(computer[2])
+                if (checkWin(computer[2])){
                     cpuScore += 1
                     document.getElementById('cpu-score').innerHTML = cpuScore.toString();
                     document.getElementById('state-text').innerHTML = 'OH NO, YOU LOST...'
@@ -123,9 +125,9 @@ window.addEventListener('DOMContentLoaded', () => {
             const move = () => {        
                 box.forEach((mark)=> {    
                     let step = () => {
-                        if(!mark.classList.contains(userClass) && !mark.classList.contains(computerClass)) {                         
-                            mark.classList.add(userClass)
-                            if (checkWin(userClass)){
+                        if(!mark.classList.contains(user[2]) && !mark.classList.contains(computer[2])) {                         
+                            mark.classList.add(user[2])
+                            if (checkWin(user[2])){
                                 userScore += 1
                                 document.getElementById('player-score').innerHTML = userScore.toString();
                                 document.getElementById('state-text').innerHTML = 'YOU WON!'

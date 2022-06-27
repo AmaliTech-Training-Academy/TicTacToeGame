@@ -7,31 +7,24 @@ const Osvg = '<svg width="64" height="64" xmlns="http://www.w3.org/2000/svg"><pa
 const Xsvg = '<svg width="64" height="64" xmlns="http://www.w3.org/2000/svg"><path d="M15.002 1.147 32 18.145 48.998 1.147a3 3 0 0 1 4.243 0l9.612 9.612a3 3 0 0 1 0 4.243L45.855 32l16.998 16.998a3 3 0 0 1 0 4.243l-9.612 9.612a3 3 0 0 1-4.243 0L32 45.855 15.002 62.853a3 3 0 0 1-4.243 0L1.147 53.24a3 3 0 0 1 0-4.243L18.145 32 1.147 15.002a3 3 0 0 1 0-4.243l9.612-9.612a3 3 0 0 1 4.243 0Z" fill="#31C3BD" fill-rule="evenodd"/></svg>'
 
 // Mark and color
-const O_MARK = [Osvg, '#FFC860'];
-const X_MARK = [ Xsvg, '#31C3BD']
+const O_MARK = [Osvg, '#FFC860', 'playerO'];
+const X_MARK = [Xsvg, '#31C3BD', 'playerX'];
 
 // Assign user and computer
 let user = O_MARK
-let userClass = 'playerO'
 let computer = X_MARK
-let computerClass = 'playerX'
 
 sessionStorage.setItem("user", JSON.stringify(O_MARK))
-sessionStorage.setItem("userClass", "playerO")
 sessionStorage.setItem("computer", JSON.stringify(X_MARK))
-sessionStorage.setItem("computerClass", "playerX")
 
-// fix this toggle situation to flip the colors
+// toggles
 const toggleX = () => {
     xbg.style.backgroundColor = '#A8BFC9'
     xSelect.style.filter = 'invert(12%) sepia(12%) saturate(1823%) hue-rotate(157deg) brightness(96%) contrast(90%)'
     obg.style.backgroundColor = '#1A2A33'
     oSelect.style.filter = 'invert(79%) sepia(32%) saturate(145%) hue-rotate(153deg) brightness(90%) contrast(89%)'
     sessionStorage.setItem("user", JSON.stringify(X_MARK))
-    sessionStorage.setItem("userClass", "playerX")
     sessionStorage.setItem("computer", JSON.stringify(O_MARK))
-    sessionStorage.setItem("computerClass", "playerO")
-    computerClass = 'playerO'
 }
 
 const toggleO = () => {
@@ -40,9 +33,7 @@ const toggleO = () => {
     xbg.style.backgroundColor = '#1A2A33'
     xSelect.style.filter = 'invert(79%) sepia(32%) saturate(145%) hue-rotate(153deg) brightness(90%) contrast(89%)'
     sessionStorage.setItem("user", JSON.stringify(O_MARK))
-    sessionStorage.setItem("userClass", "playerO")
     sessionStorage.setItem("computer", JSON.stringify(X_MARK))
-    sessionStorage.setItem("computerClass", "playerX")
 }
 
 
