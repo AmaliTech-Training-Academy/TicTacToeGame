@@ -180,7 +180,6 @@ body {
 
 .box:hover {
     cursor: pointer;
-    background: url(./starter-code/assets/icon-x-outline.svg);
     background-repeat: no-repeat;
     background-position: 50%;
 }
