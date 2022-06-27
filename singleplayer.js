@@ -1,4 +1,5 @@
 window.addEventListener('DOMContentLoaded', () => {
+    let changeTurn = true;
     const gameBoard = (() => {
         let user = JSON.parse(sessionStorage.getItem("user"))
         let computer = JSON.parse(sessionStorage.getItem("computer"))
@@ -8,6 +9,7 @@ window.addEventListener('DOMContentLoaded', () => {
         let cpuScore = Number(document.getElementById('cpu-score').innerHTML);
         let userHover = document.getElementsByClassName('box')
         let restartBtn = document.getElementById('restart-icon')
+        let overlay = document.getElementById('overlay')
 
         const restartState = () => {
             document.getElementById('restart-ttr').innerHTML = 'RESTART GAME?'
@@ -57,6 +59,7 @@ window.addEventListener('DOMContentLoaded', () => {
             document.getElementById('ttr').style.color = '#A8BFC9'
             document.getElementById('states-message').style.columnGap = '0px'
             document.getElementById('states').style.visibility = 'visible'
+            overlay.style.visibility = 'visible'
         }
 
         //clear screen
@@ -65,6 +68,7 @@ window.addEventListener('DOMContentLoaded', () => {
                 item.classList.remove(user[2])
                 item.classList.remove(computer[2])
                 document.getElementById('states').style.visibility = 'hidden'
+                overlay.style.visibility = 'hidden'
             } catch (error) {
                 console.log(error)
             }
@@ -98,7 +102,6 @@ window.addEventListener('DOMContentLoaded', () => {
             return box.every((val) => 
             val.classList.contains(user[2]) || val.classList.contains(computer[2]))
         }
-        // console.log(boardFull())
 
         //Start game
         const player = Players();
@@ -107,8 +110,6 @@ window.addEventListener('DOMContentLoaded', () => {
         function Players (){
             const machine = () => {            
                 let play = Math.floor(Math.random() * box.length);
-                // console.log(`first play value ${play}`)
-                //problem here... loops forever at last point
                 while(box[play].classList.contains(user[2]) || box[play].classList.contains(computer[2])){
                   if (boardFull() && !checkWin(user[2]) && !checkWin(computer[2])) {
                     tiedState()
@@ -117,8 +118,6 @@ window.addEventListener('DOMContentLoaded', () => {
                     return
                   }
                   play = Math.floor(Math.random() * box.length);
-                //   console.log(`second play value ${play}`)
-
                 }
                 box[play].classList.add(computer[2])
                 if (checkWin(computer[2])){
@@ -130,63 +129,89 @@ window.addEventListener('DOMContentLoaded', () => {
                     document.getElementById('win-icon').innerHTML = computer[0]
                     document.getElementById('ttr').style.color = computer[1]
                     document.getElementById('states').style.visibility = 'visible'
+                    overlay.style.visibility = 'visible'
                 }
-                // console.log(play);  
-  
               }
-            // console.log(`Human player is ${humanPlayer}, and machine is ${machine}`)
             return {machine}
         } 
-    
-        const gamePlay = () => {
-                // const gameOver = () => box.forEach((spot) =>{
-            //     if(spot != choice){
-            //              spot.classList.add("gameover");
-            //                }
-            //  })
-            const move = () => {        
-                box.forEach((mark)=> {    
-                    let step = () => {
-                        if(!mark.classList.contains(user[2]) && !mark.classList.contains(computer[2])) {                         
-                            mark.classList.add(user[2])
-                            if (checkWin(user[2])){
-                                userScore += 1
-                                document.getElementById('player-score').innerHTML = userScore.toString();
-                                document.getElementById('state-text').innerHTML = 'YOU WON!'
-                                document.getElementById('ttr').innerHTML = 'TAKES THIS ROUND'
-                                document.getElementById('states-message').style.columnGap = '24px'
-                                document.getElementById('win-icon').innerHTML = user[0]
-                                document.getElementById('ttr').style.color = user[1]
-                                document.getElementById('states').style.visibility = 'visible'
 
-                            }
-                            const cpuChoice = () => {
-                                setTimeout(() => {
-                                    player.machine();   
-                                }, 800);
-                            }
-                            cpuChoice();
-                            
-                        }                                                                     
-                    }
-                    mark.addEventListener("click", step);
-                })                
-            }
-            // next round functionality
-            const nextRound = document.getElementById('next-round')
-            nextRound.addEventListener('click', () => {
-                clrScreen()
-                changeIcon()
-            })
-             
-            // const highLight = (combo) => {
-            //         combo.forEach((idx) => box[idx].classList.add("highlight"))
-            // }          
-            move();                    
+        const cpuChoice = () => {
+            setTimeout(() => {
+                player.machine();   
+            }, 800);
         }
-        gamePlay();
 
-        // return {gamePlay};       
+        const userChoice = (tile) => {
+            tile.classList.add(user[2])
+        }
+
+        const changeChoice = () => {
+
+        }
+
+        const checkUserWin = () => {
+            if (checkWin(user[2])){
+                userScore += 1
+                document.getElementById('player-score').innerHTML = userScore.toString();
+                document.getElementById('state-text').innerHTML = 'YOU WON!'
+                document.getElementById('ttr').innerHTML = 'TAKES THIS ROUND'
+                document.getElementById('states-message').style.columnGap = '24px'
+                document.getElementById('win-icon').innerHTML = user[0]
+                document.getElementById('ttr').style.color = user[1]
+                document.getElementById('states').style.visibility = 'visible'
+                overlay.style.visibility = 'visible'
+                return true
+            } else {
+                return false
+            }
+        }
+    
+        const gamePlay1 = () => {       
+            box.forEach((mark)=> {    
+                let step = () => {
+                    if(!mark.classList.contains(user[2]) && !mark.classList.contains(computer[2])) {   
+                        userChoice(mark)                   
+                    }
+                    if (checkUserWin()) {
+                        return
+                    }
+                    cpuChoice()
+                }     
+                mark.addEventListener("click", step);
+            })                               
+        }
+        gamePlay1();
+
+        // TODO- you need to click before CPU can play <-- change this
+        const gamePlay2 = () => {  
+            cpuChoice()     
+            box.forEach((mark)=> {    
+                let step = () => {
+                    if(!mark.classList.contains(user[2]) && !mark.classList.contains(computer[2])) {   
+                        userChoice(mark)                   
+                    }
+                    if (checkUserWin()) {
+                        return
+                    }
+                    // cpuChoice()
+                }     
+                mark.addEventListener("click", step);
+            })                               
+        }
+                
+        // next round functionality
+        const nextRound = document.getElementById('next-round')
+        nextRound.addEventListener('click', () => {
+            clrScreen()
+            changeIcon()
+            if (changeTurn) {
+                gamePlay2()
+                changeTurn = false
+            } else {
+                gamePlay1()
+                changeTurn = true
+            }
+        })    
     });
 
     gameBoard();
