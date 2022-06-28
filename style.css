@@ -10,6 +10,17 @@ body {
     background-color: #1A2A33;
 }
 
+#overlay {
+    visibility: hidden;
+    position: fixed;
+    top: 0;
+    background-color: #000;
+    opacity: .75;
+    z-index: 1;
+    width: 100vw;
+    height: 100%;
+}
+
 .body {
     display: flex;
     justify-content: center;
@@ -178,12 +189,12 @@ body {
     background-color: #dbe8ed;
 }
 
-.box:hover {
+/* .box:hover {
     cursor: pointer;
     background: url(./starter-code/assets/icon-x-outline.svg);
     background-repeat: no-repeat;
     background-position: 50%;
-}
+} */
 
 #next-round:hover {
     background-color: #ffc860;
@@ -211,7 +222,7 @@ body {
 }
 
 .states {
-    z-index: 1;
+    z-index: 2;
     font-family: 'Outfit', sans-serif;
     visibility: hidden;
     position: fixed;

@@ -7,8 +7,8 @@ const Osvg = '<svg width="64" height="64" xmlns="http://www.w3.org/2000/svg"><pa
 const Xsvg = '<svg width="64" height="64" xmlns="http://www.w3.org/2000/svg"><path d="M15.002 1.147 32 18.145 48.998 1.147a3 3 0 0 1 4.243 0l9.612 9.612a3 3 0 0 1 0 4.243L45.855 32l16.998 16.998a3 3 0 0 1 0 4.243l-9.612 9.612a3 3 0 0 1-4.243 0L32 45.855 15.002 62.853a3 3 0 0 1-4.243 0L1.147 53.24a3 3 0 0 1 0-4.243L18.145 32 1.147 15.002a3 3 0 0 1 0-4.243l9.612-9.612a3 3 0 0 1 4.243 0Z" fill="#31C3BD" fill-rule="evenodd"/></svg>'
 
 // Mark and color
-const O_MARK = [Osvg, '#FFC860', 'playerO'];
-const X_MARK = [Xsvg, '#31C3BD', 'playerX'];
+const O_MARK = [Osvg, '#FFC860', 'playerO', './starter-code/assets/icon-o-grey.svg'];
+const X_MARK = [Xsvg, '#31C3BD', 'playerX', './starter-code/assets/icon-x-grey.svg'];
 
 // Assign user and computer
 let user = O_MARK

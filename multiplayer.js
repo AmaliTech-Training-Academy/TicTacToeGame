@@ -7,15 +7,18 @@ window.addEventListener('DOMContentLoaded', () => {
     let p2Score = Number(document.getElementById('cpu-score').innerHTML);
     let userHover = document.getElementsByClassName('box')
     let restartBtn = document.getElementById('restart-icon')
+    let overlay = document.getElementById('overlay')
 
     const restartState = () => {
         document.getElementById('restart-ttr').innerHTML = 'RESTART GAME?'
         document.getElementById('restart-ttr').style.color = '#A8BFC9'
         document.getElementById('restart-states').style.visibility = 'visible'
+        overlay.style.visibility = 'visible'
         
         let cancelBtn = document.getElementById('cancel')
         cancelBtn.addEventListener('click', function(){
-            document.getElementById('restart-states').style.visibility = 'hidden' 
+            document.getElementById('restart-states').style.visibility = 'hidden'
+            overlay.style.visibility = 'hidden' 
         })
     }
 
@@ -64,6 +67,7 @@ window.addEventListener('DOMContentLoaded', () => {
         document.getElementById('ttr').style.color = '#A8BFC9'
         document.getElementById('states-message').style.columnGap = '0px'
         document.getElementById('states').style.visibility = 'visible'
+        overlay.style.visibility = 'visible'
     }
     
     //clear screen
@@ -72,6 +76,7 @@ window.addEventListener('DOMContentLoaded', () => {
             item.classList.remove(p1[2])
             item.classList.remove(p2[2])
             document.getElementById('states').style.visibility = 'hidden'
+            overlay.style.visibility = 'hidden'
         } catch (error) {
             console.log(error)
         }
@@ -136,7 +141,8 @@ window.addEventListener('DOMContentLoaded', () => {
             document.getElementById('states-message').style.columnGap = '24px'
             document.getElementById('win-icon').innerHTML = p1[0]
             document.getElementById('ttr').style.color = p1[1]
-            document.getElementById('states').style.visibility = 'visible' 
+            document.getElementById('states').style.visibility = 'visible'
+            overlay.style.visibility = 'visible'
         } else {
             document.getElementById('cpu-score').innerHTML = p2Score.toString();
             document.getElementById('state-text').innerHTML = 'PLAYER 2 WINS!'
@@ -144,7 +150,8 @@ window.addEventListener('DOMContentLoaded', () => {
             document.getElementById('states-message').style.columnGap = '24px'
             document.getElementById('win-icon').innerHTML = p2[0]
             document.getElementById('ttr').style.color = p2[1]
-            document.getElementById('states').style.visibility = 'visible'   
+            document.getElementById('states').style.visibility = 'visible' 
+            overlay.style.visibility = 'visible'  
         }
     }
 
