@@ -2,6 +2,9 @@
 let p1 = JSON.parse(sessionStorage.getItem("user"))
 let p2 = JSON.parse(sessionStorage.getItem("computer"))
 
+// saves gameData
+let saveData;
+let arr;
 
 //set current player based on selected starting icon
 let currentPlayer;
@@ -33,6 +36,7 @@ let p1Score = Number(document.getElementById('player-score').innerHTML);
 let tiesCount = Number(document.getElementById('ties-count').innerHTML);
 let p2Score = Number(document.getElementById('cpu-score').innerHTML);
 let restartBtn = document.getElementById('restart-icon')
+let confirmRestart = document.getElementById('restart')
 let overlay = document.getElementById('overlay')
 let cancelBtn = document.getElementById('cancel')
 const nextRound = document.getElementById('next-round')
@@ -42,6 +46,74 @@ const boxArr = Array.from(document.querySelectorAll('.box'));
 let gamesLeft  = 1
 // switches turn
 let turn = p1[2] == 'playerX'
+
+// BROWSER RELOAD SAVE FUNCTIONALITY START
+function saveGameState () {
+    classes()
+    saveData = {
+        p1Score,
+        turn,
+        tiesCount,
+        p2Score,
+        currentPlayer,
+        arr
+    }
+    sessionStorage.setItem("gameData", JSON.stringify(saveData))
+    console.log('saved game state')
+}
+
+function restoreGameState() {
+    console.log('called restoreGamestate')
+    saveData = JSON.parse(sessionStorage.getItem("gameData"))
+    console.log(saveData)
+    turn = saveData.turn
+    currentPlayer = saveData.currentPlayer
+    p1Score = saveData.p1Score
+    tiesCount = saveData.tiesCount
+    p2Score = saveData.p2Score
+    boxArr.forEach((box, index) => {
+
+        box.classList.add(saveData.arr[index])
+    })
+    // update scores
+    document.getElementById('cpu-score').innerHTML = p2Score.toString();
+    document.getElementById('player-score').innerHTML = p1Score.toString();
+    document.getElementById('ties-count').innerHTML = tiesCount.toString();
+    console.log(turn)
+    console.log(currentPlayer[2])
+
+    //solve turn issues
+    if ((turn == false) && (currentPlayer[2] == p1[2])){
+        console.log('checking conditions')
+        turn = true
+        gameplay()
+        turn = (!turn)
+        console.log(turn)
+    } else if ((turn == true) && (currentPlayer[2] == p2[2])){
+        turn = false
+        gameplay()
+        turn = (!turn)
+    } else {
+        gameplay()
+    }
+
+
+}
+// save data for class list
+const classes = () => {
+    arr = []
+    boxArr.forEach(box => {
+        if (box.classList.contains('playerX')){
+            arr.push('playerX')
+        } else if (box.classList.contains('playerO')){
+            arr.push('playerO')
+        } else {
+            arr.push('a')
+        }
+        return arr
+    })
+}
+// BROWSER END
 
 // get empty boxes
 const getEmpty = () => {
@@ -88,6 +160,14 @@ const restartState = () => {
 
 restartBtn.addEventListener('click', restartState)
 
+// restart game
+confirmRestart.addEventListener('click', () => {
+    clrScreen()
+    saveGameState()
+    gamesLeft++
+    gameplay()
+})
+
 // removes restart state
 cancelBtn.addEventListener('click', function(){
     document.getElementById('restart-states').style.visibility = 'hidden'
@@ -112,6 +192,7 @@ const clrScreen = () => boxArr.forEach((item) => {
     item.classList.remove(p1[2])
     item.classList.remove(p2[2])
     document.getElementById('states').style.visibility = 'hidden'
+    document.getElementById('restart-states').style.visibility = 'hidden'
     overlay.style.visibility = 'hidden'
     item.style.backgroundColor = '#1F3641'
     item.style.backgroundImage = ''
@@ -218,10 +299,12 @@ function action (evt) {
             statePop()
             changePlayer()
             changeTurnIcon()
+            saveGameState()
             return
         }
         changePlayer();
         changeTurnIcon()
+        saveGameState()
         if (boardFull()) {
             tiedState()
         }
@@ -233,6 +316,7 @@ nextRound.addEventListener('click', () => {
     gamesLeft += 1
     turn = (!turn)
     clrScreen()
+    saveGameState()
     gameplay()
 })
 
@@ -256,6 +340,10 @@ const gameplay = () => {
             gamesLeft-- 
         }
     } 
+}
+
+if (sessionStorage.getItem("gameData") !== null){
+    restoreGameState()
 }
 
 gameplay()

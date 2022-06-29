@@ -2,6 +2,11 @@
 let user = JSON.parse(sessionStorage.getItem("user"))
 let cpu = JSON.parse(sessionStorage.getItem("computer"))
 
+
+// saves gameData
+let saveData;
+let arr;
+
 // set score area text and color
 if (user[2] == 'playerO') {
     document.getElementById('you').innerHTML = 'O (YOU)'
@@ -26,6 +31,7 @@ let userScore = Number(document.getElementById('player-score').innerHTML);
 let tiesCount = Number(document.getElementById('ties-count').innerHTML);
 let cpuScore = Number(document.getElementById('cpu-score').innerHTML);
 let restartBtn = document.getElementById('restart-icon')
+let confirmRestart = document.getElementById('restart')
 let overlay = document.getElementById('overlay')
 let cancelBtn = document.getElementById('cancel')
 const boxes = document.querySelectorAll(".box");
@@ -38,12 +44,72 @@ let gamesLeft = 1
 // switches turn
 let turn = user[2] == 'playerX'
 
+
+// BROWSER RELOAD SAVE FUNCTIONALITY START
+function saveGameState () {
+    classes()
+    saveData = {
+        userScore,
+        turn,
+        tiesCount,
+        cpuScore,
+        arr
+    }
+    sessionStorage.setItem("gameData", JSON.stringify(saveData))
+    console.log('saved game state')
+}
+
+function restoreGameState() {
+    console.log('called restoreGamestate')
+    saveData = JSON.parse(sessionStorage.getItem("gameData"))
+    console.log(saveData)
+    turn = saveData.turn
+    userScore = saveData.userScore
+    tiesCount = saveData.tiesCount
+    cpuScore = saveData.cpuScore
+    boxArr.forEach((box, index) => {
+        console.log('inside class restore')
+        box.classList.add(saveData.arr[index])
+    })
+    // update scores
+    document.getElementById('cpu-score').innerHTML = cpuScore.toString();
+    document.getElementById('player-score').innerHTML = userScore.toString();
+    document.getElementById('ties-count').innerHTML = tiesCount.toString();
+    
+    // solve pc playing on every reload
+    if (turn) {
+        console.log(turn)
+        gameplay()
+    } else {
+        turn = true
+        gameplay()
+        turn = (!turn)
+    }
+}
+
+// save data for class list
+const classes = () => {
+    arr = []
+    boxArr.forEach(box => {
+        if (box.classList.contains('playerX')){
+            arr.push('playerX')
+        } else if (box.classList.contains('playerO')){
+            arr.push('playerO')
+        } else {
+            arr.push('a')
+        }
+        return arr
+    })
+}
+// BROWSER END
+
 //get empty boxes
 const getEmpty = () => {
     return boxArr.filter(cell => 
         !cell.classList.contains(user[2]) && !cell.classList.contains(cpu[2])
     )  
 }
+
 
 //WIN, LOSE AND TIED STATE
 const WIN_COMBOS = [
@@ -83,6 +149,14 @@ const restartState = () => {
 
 restartBtn.addEventListener('click', restartState)
 
+// restart game
+confirmRestart.addEventListener('click', () => {
+    clrScreen()
+    saveGameState()
+    gamesLeft++
+    gameplay()
+})
+
 // removes restart state
 cancelBtn.addEventListener('click', () => {
     document.getElementById('restart-states').style.visibility = 'hidden' 
@@ -108,6 +182,7 @@ const clrScreen = () => boxArr.forEach((item) => {
     item.classList.remove(user[2])
     item.classList.remove(cpu[2])
     document.getElementById('states').style.visibility = 'hidden'
+    document.getElementById('restart-states').style.visibility = 'hidden'
     overlay.style.visibility = 'hidden'
     item.addEventListener('mouseenter', (user) => hover(item))
     item.style.backgroundColor = '#1F3641'
@@ -158,7 +233,7 @@ const player = Players();
 
 //return computer choice
 function Players (){
-    const machine = () => {            
+    const machine = () => {          
         let play = Math.floor(Math.random() * boxArr.length);
         while(boxArr[play].classList.contains(user[2]) || boxArr[play].classList.contains(cpu[2])){
             play = Math.floor(Math.random() * boxArr.length);
@@ -182,6 +257,8 @@ function Players (){
             document.getElementById('states').style.visibility = 'visible'
             overlay.style.visibility = 'visible'            
         }
+        saveGameState()
+        // console.log(saveData)
     }
     return {machine}
 } 
@@ -201,6 +278,8 @@ const checkUserWin = () => {
     if (checkWin(user[2])){
         winEffect(user)
         userScore += 1
+        saveGameState()
+        console.log('saved on user win')
         document.getElementById('player-score').innerHTML = userScore.toString();
         document.getElementById('state-text').innerHTML = 'YOU WON!'
         document.getElementById('ttr').innerHTML = 'TAKES THIS ROUND'
@@ -238,7 +317,10 @@ function userChoice (evt) {
         tiedState()
         return
     }
-    cpuChoice().then(changeToUser)
+    // run saveState and log data
+    saveGameState()
+    // console.log(saveData)
+    cpuChoice().then(() => changeToUser)
 }
 
 // player object
@@ -261,6 +343,7 @@ nextRound.addEventListener('click', () => {
     gamesLeft += 1
     turn = (!turn)
     clrScreen()
+    saveGameState()
     gameplay()
 })
 
@@ -280,9 +363,15 @@ const gameplay = () => {
     }    
 }
 
+
+if (sessionStorage.getItem("gameData") !== null){
+    restoreGameState()
+}
 gameplay()
 
-
+// if (sessionStorage.getItem("gameData") !== null){
+//     restoreGameState()
+// }
 
 
 

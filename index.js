@@ -14,6 +14,8 @@ const X_MARK = [XSVG, '#31C3BD', 'playerX', './starter-code/assets/icon-x-grey.s
 let user = O_MARK
 let computer = X_MARK
 
+// clear before storage
+sessionStorage.clear()
 // store variable for us in other sessions
 sessionStorage.setItem("user", JSON.stringify(O_MARK))
 sessionStorage.setItem("computer", JSON.stringify(X_MARK))
