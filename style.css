@@ -54,7 +54,7 @@ body {
     width: 100%;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: clamp(.5rem, 2vw, 2rem);
+    gap: clamp(.5rem, 1vw, 2rem);
 }
 
 .box {
@@ -69,8 +69,10 @@ body {
 
 .footer {
     width: 100%;
-    margin-top: 20px;
+    height: 72px;
+    margin-top: 1vw;
     display: flex;
+    gap: 1vw;
     justify-content: space-between;
 }
 
@@ -113,10 +115,10 @@ body {
 .you {
     background-color: #31C3BD;
     border-radius: 15px;
-    margin: 10px;
-    margin-right: 20px;
-    width: 140px;
-    height: 72px;
+    /* margin: 10px; */
+    /* margin-right: 20px; */
+    width: 31%;
+    /* height: 72px; */
     text-align: center;
     padding-top: 5px;
 }
@@ -136,17 +138,16 @@ body {
 .ties {
     background-color: #A8BFC9;
     border-radius: 10px;
-    margin: 10px;
-    margin-right: 15px;
-    width: 140px;
-    height: 72px;
+    /* margin: 10px; */
+    /* margin-right: 15px; */
+    width: 31%;
+    /* height: 72px; */
     text-align: center;
     padding-top: 5px;
 
 }
 
 #ties {
-
     font-family: Outfit;
     font-size: 10px;
     font-weight: 15px;
@@ -156,12 +157,12 @@ body {
 .ocpu {
     background-color: #F2B137;
     border-radius: 15px;
-    margin: 10px;
-    margin-right: 10px;
-    width: 140px;
-    height: 72px;
-    left: 491px;
-    top: 690px;
+    /* margin: 10px; */
+    /* margin-right: 10px; */
+    width: 31%;
+    /* height: 72px; */
+    /* left: 491px; */
+    /* top: 690px; */
     text-align: center;
     padding-top: 5px;
 }
@@ -315,5 +316,17 @@ body {
 
     .body {
         padding-top: 2rem;
+    }
+    
+    .turn {
+        width: 105px;
+    }
+
+    .header {
+        margin-bottom: 64px;
+    }
+
+    .footer {
+        height: 64px;
     }
 }

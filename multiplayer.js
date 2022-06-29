@@ -1,6 +1,7 @@
+// user objects loaded from storage
 let p1 = JSON.parse(sessionStorage.getItem("user"))
 let p2 = JSON.parse(sessionStorage.getItem("computer"))
-let setTurn = true;
+
 
 //set current player based on selected starting icon
 let currentPlayer;
@@ -11,6 +12,7 @@ if (p1[2] == "playerO") {
     currentPlayer = p1
 }
 
+// set score area text and color
 if (p1[2] == 'playerO') {
     document.getElementById('you').innerHTML = 'O (P1)'
     document.getElementById('p1-rg').style.backgroundColor = p1[1]
@@ -18,6 +20,8 @@ if (p1[2] == 'playerO') {
     document.getElementById('p2-rg').style.backgroundColor = p2[1]
 }
 
+
+//turn icon functions
 let turnIcon = document.getElementById('turn-icon-img')
 
 const changeTurnIcon = () => {
@@ -28,7 +32,6 @@ const changeTurnIcon = () => {
 let p1Score = Number(document.getElementById('player-score').innerHTML);
 let tiesCount = Number(document.getElementById('ties-count').innerHTML);
 let p2Score = Number(document.getElementById('cpu-score').innerHTML);
-// let userHover = document.getElementsByClassName('box')
 let restartBtn = document.getElementById('restart-icon')
 let overlay = document.getElementById('overlay')
 let cancelBtn = document.getElementById('cancel')
@@ -36,9 +39,11 @@ const nextRound = document.getElementById('next-round')
 const boxArr = Array.from(document.querySelectorAll('.box'));
 
 //trackers
-let small = 1
+let gamesLeft  = 1
+// switches turn
 let turn = p1[2] == 'playerX'
 
+// get empty boxes
 const getEmpty = () => {
     return boxArr.filter(cell => 
         !cell.classList.contains(p1[2]) && !cell.classList.contains(p2[2])
@@ -57,7 +62,7 @@ const WIN_COMBOS = [
     [2, 4, 6],
 ];
 
-// check win for
+// check win
 const checkWin = (mark) => {
     return WIN_COMBOS.some((combo) => {
         return combo.every((element) => {
@@ -67,11 +72,13 @@ const checkWin = (mark) => {
     })
 }
 
+// check if gameboard is full
 const boardFull = () => {
     return boxArr.every((val) => 
     val.classList.contains(p1[2]) || val.classList.contains(p2[2]))
 }
 
+// brings up restart state
 const restartState = () => {
     document.getElementById('restart-ttr').innerHTML = 'RESTART GAME?'
     document.getElementById('restart-ttr').style.color = '#A8BFC9'
@@ -81,11 +88,13 @@ const restartState = () => {
 
 restartBtn.addEventListener('click', restartState)
 
+// removes restart state
 cancelBtn.addEventListener('click', function(){
     document.getElementById('restart-states').style.visibility = 'hidden'
     overlay.style.visibility = 'hidden' 
 })
 
+// brings up tied state
 const tiedState = () => {
     tiesCount += 1
     document.getElementById('ties-count').innerHTML = tiesCount.toString();
@@ -108,6 +117,8 @@ const clrScreen = () => boxArr.forEach((item) => {
     item.style.backgroundImage = ''
 })
 
+
+// setting hovers
 const hover = (item) => {
     if (currentPlayer[2] == 'playerO') {
         item.style.backgroundImage = 'url(./starter-code/assets/icon-o-outline.svg)' 
@@ -125,6 +136,7 @@ const setHover = () => {
     })
 }
 
+// create highight on win icons
 const winEffect = (caller) => {
     const winArr = []
     boxArr.forEach(box => {
@@ -144,13 +156,14 @@ const winEffect = (caller) => {
     })
 }
 
-// this function must check the class not the innerHTML
+// checks if box is empty
 const isValid = (box) => {
     if (box.classList.contains(p1[2]) || box.classList.contains(p2[2])){
         return false;
     }
     return true;
 };
+
 
 const updateScore = () => {
     if (currentPlayer == p1) {
@@ -160,6 +173,7 @@ const updateScore = () => {
     }
 }
 
+// brings up win state
 const statePop = () => {
     if (currentPlayer == p1) {
         document.getElementById('player-score').innerHTML = p1Score.toString();
@@ -182,6 +196,7 @@ const statePop = () => {
     }
 }
 
+// changes currentPlayer
 const changePlayer = () => {
     if (currentPlayer == p1) {
         currentPlayer = p2      
@@ -192,6 +207,7 @@ const changePlayer = () => {
 }
 
 
+// player actions
 function action (evt) {
     if(isValid(evt.target) && !boardFull()) {
         evt.target.classList.add(currentPlayer[2])
@@ -212,30 +228,32 @@ function action (evt) {
     }
 }
 
+// calls next round
 nextRound.addEventListener('click', () => {
-    small += 1
+    gamesLeft += 1
     turn = (!turn)
     clrScreen()
     gameplay()
 })
 
+// game play
 const gameplay = () => {
     setHover()
-    while (small > 0) {
+    while (gamesLeft > 0) {
         if (turn) {
             currentPlayer = p1
             turnIcon.src = p1[3]
             boxArr.forEach((box) => {
                 box.addEventListener('click', action);
             }); 
-            small--
+            gamesLeft--
         } else {
             currentPlayer = p2
             turnIcon.src = p2[3]
             boxArr.forEach((box) => {
                 box.addEventListener('click', action);
             }); 
-            small-- 
+            gamesLeft-- 
         }
     } 
 }

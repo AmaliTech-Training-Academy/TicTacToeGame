@@ -1,7 +1,8 @@
-
+// user objects loaded from storage
 let user = JSON.parse(sessionStorage.getItem("user"))
 let cpu = JSON.parse(sessionStorage.getItem("computer"))
 
+// set score area text and color
 if (user[2] == 'playerO') {
     document.getElementById('you').innerHTML = 'O (YOU)'
     document.getElementById('you-rg').style.backgroundColor = user[1]
@@ -9,6 +10,7 @@ if (user[2] == 'playerO') {
     document.getElementById('cpu-rg').style.backgroundColor = cpu[1]
 }
 
+// turn icon functions
 let turnIcon = document.getElementById('turn-icon-img')
 
 const changeToUser = () => {
@@ -32,9 +34,11 @@ const nextRound = document.getElementById('next-round')
 
 
 //trackers
-let small = 1
+let gamesLeft = 1
+// switches turn
 let turn = user[2] == 'playerX'
 
+//get empty boxes
 const getEmpty = () => {
     return boxArr.filter(cell => 
         !cell.classList.contains(user[2]) && !cell.classList.contains(cpu[2])
@@ -53,7 +57,7 @@ const WIN_COMBOS = [
     [2, 4, 6],
 ];
 
-// check win for
+// check win
 const checkWin = (mark) => {
     return WIN_COMBOS.some((combo) => {
         return combo.every((element) => {
@@ -63,10 +67,13 @@ const checkWin = (mark) => {
     })
 }
 
+// check if gameboard is full
 const boardFull = () => {
     return boxArr.every((val) => 
     val.classList.contains(user[2]) || val.classList.contains(cpu[2]))
 }
+
+// brings up restart state
 const restartState = () => {
     document.getElementById('restart-ttr').innerHTML = 'RESTART GAME?'
     document.getElementById('restart-ttr').style.color = '#A8BFC9'
@@ -76,11 +83,14 @@ const restartState = () => {
 
 restartBtn.addEventListener('click', restartState)
 
+// removes restart state
 cancelBtn.addEventListener('click', () => {
     document.getElementById('restart-states').style.visibility = 'hidden' 
     overlay.style.visibility = 'hidden'
 })
-//tied State
+
+
+//brings up tied State
 const tiedState = () => {
     tiesCount += 1
     document.getElementById('ties-count').innerHTML = tiesCount.toString();
@@ -93,7 +103,7 @@ const tiedState = () => {
     overlay.style.visibility = 'visible'
 }
 
-//clear screen
+//clears screen
 const clrScreen = () => boxArr.forEach((item) => {
     item.classList.remove(user[2])
     item.classList.remove(cpu[2])
@@ -104,6 +114,7 @@ const clrScreen = () => boxArr.forEach((item) => {
     item.style.backgroundImage = ''
 })
 
+// setting hovers
 const hover = (item) => {
     if (user[2] == 'playerO') {
         item.style.backgroundImage = 'url(./starter-code/assets/icon-o-outline.svg)' 
@@ -121,6 +132,7 @@ const setHover = () => {
     })
 }
 
+// create highlight on win icons
 const winEffect = (caller) => {
     const winArr = []
     boxArr.forEach(box => {
@@ -140,10 +152,11 @@ const winEffect = (caller) => {
     })
 }
 
-//Start game
+
+// CPU Starts
 const player = Players();
 
-//return play choice and computer choice
+//return computer choice
 function Players (){
     const machine = () => {            
         let play = Math.floor(Math.random() * boxArr.length);
@@ -181,7 +194,9 @@ function cpuChoice () {
         }, 900);
     })
 }
+// CPU ends
 
+// checks if user has won
 const checkUserWin = () => {
     if (checkWin(user[2])){
         winEffect(user)
@@ -201,10 +216,12 @@ const checkUserWin = () => {
 
 }
 
+// removes hover on clicked box
 function remove (evt){
     evt.target.style.backgroundImage = ''
 }
 
+// USER starts
 function userChoice (evt) {
     if (!evt.target.classList.contains(cpu[2])) {
         evt.target.classList.add(user[2])
@@ -224,7 +241,7 @@ function userChoice (evt) {
     cpuChoice().then(changeToUser)
 }
 
-
+// player object
 const play = {
     cells: getEmpty(),
     addEvt () {
@@ -239,24 +256,26 @@ const play = {
     }
 }
 
+// calls next round
 nextRound.addEventListener('click', () => {
-    small += 1
+    gamesLeft += 1
     turn = (!turn)
     clrScreen()
     gameplay()
 })
 
+// game play
 const gameplay = () => {
     setHover()
-    while (small > 0) {
+    while (gamesLeft > 0) {
         if (turn) {
             changeToUser()
             play.addEvt()
-            small--
+            gamesLeft--
         } else {
             cpuChoice().then(changeToUser)
             play.addEvt()
-            small--
+            gamesLeft--
         }
     }    
 }
