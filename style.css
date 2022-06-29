@@ -8,6 +8,9 @@
 
 body {
     background-color: #1A2A33;
+    width: 100vw;
+    height: 90vh;
+    margin-top: 10vh;
 }
 
 #overlay {
@@ -26,8 +29,7 @@ body {
     justify-content: center;
     /* align-items: center; */
     width: 100vw;
-    height: 90vh;
-    padding-top: 7rem;
+    /* height: 90vh; */
 }
 
 .gameplay {
@@ -303,7 +305,13 @@ body {
     border-radius: 10px;
 }
 
-/* ernest add ends here */
+
+@media only screen and (max-width: 768px) {
+    body {
+        margin-top: 20vh;
+    }
+}
+
 @media only screen and (max-width: 475px) {
     .gameplay {
         width: 328px;
@@ -330,3 +338,4 @@ body {
         height: 64px;
     }
 }
+
