@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
         <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;700&amp;display=swap" rel="stylesheet">
         <link rel="stylesheet" href="./style.css">        
-        <title>Tic Toc Toc</title>
+        <title>Tic Tac Toc</title>
     </head>
     <body>
  
@@ -41,9 +41,18 @@
                 <div class="box" id="box9"></div>
             </div>
             <div class="footer">
-                <div class="you"><span id="you">X (P1)</span><span class="num" id="player-score">0</span></div>
-                <div class="ties"><span id="ties">TIES</span><span  class="num" id="ties-count">0</span></div>
-                <div class="ocpu"><span id="cpu">O (P2)</span><span class="num" id="cpu-score">0</span></div>
+                <div id="p1-rg" class="you">
+                    <span id="you">X (P1)</span>
+                    <span class="num" id="player-score">0</span>
+                </div>
+                <div class="ties">
+                    <span id="ties">TIES</span>
+                    <span  class="num" id="ties-count">0</span>
+                </div>
+                <div id="p2-rg" class="ocpu">
+                    <span id="cpu">O (P2)</span>
+                    <span class="num" id="cpu-score">0</span>
+                </div>
             </div>
         </section>
         <div id="states" class="states">

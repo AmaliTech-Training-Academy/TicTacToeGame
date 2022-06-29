@@ -12,8 +12,6 @@ if (user[2] == 'playerO') {
 
 let turnIcon = document.getElementById('turn-icon-img')
 
-
-
 const changeToUser = () => {
     turnIcon.src = user[3]
 }
@@ -32,6 +30,7 @@ let cancelBtn = document.getElementById('cancel')
 const boxes = document.querySelectorAll(".box");
 let boxArr = Array.from(boxes);
 const nextRound = document.getElementById('next-round')
+
 
 //trackers
 let small = 1
@@ -102,6 +101,9 @@ const clrScreen = () => boxArr.forEach((item) => {
     document.getElementById('states').style.visibility = 'hidden'
     overlay.style.visibility = 'hidden'
     item.addEventListener('mouseenter', (user) => hover(item))
+    boxArr.forEach((box) => {
+        box.style.backgroundColor = '#1F3641'
+    })
 })
 
 const hover = (item) => {
@@ -148,6 +150,12 @@ function Players (){
             document.getElementById('ttr').style.color = cpu[1]
             document.getElementById('states').style.visibility = 'visible'
             overlay.style.visibility = 'visible'
+            boxArr.forEach((box) => {
+                if (box.classList.contains(cpu[2])) {
+                    box.style.backgroundColor = cpu[1]
+                }
+            })
+            
         }
     }
     return {machine}
@@ -173,6 +181,12 @@ const checkUserWin = () => {
         document.getElementById('ttr').style.color = user[1]
         document.getElementById('states').style.visibility = 'visible'
         overlay.style.visibility = 'visible'
+        boxArr.forEach((box) => {
+            if (box.classList.contains(user[2])) {
+                box.style.backgroundColor = user[1]
+                // box.style.backgroundImage.src = 'url(./starter-code/assets/icon-x-grey.svg)'
+            }
+        })
         return true
     } else {
         return false
