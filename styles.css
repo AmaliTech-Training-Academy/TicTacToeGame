@@ -151,6 +151,21 @@ p {
     
 }
 /* Hover  start*/
+.x-img:hover {
+    background-color: #1b303a;
+    cursor: pointer;
+}
+
+#cpu:hover {
+    background-color: #ffc860;
+    cursor: pointer;
+}
+#player:hover {
+    background-color: #65e9e4;
+    cursor: pointer;
+}
+/* hover end */
+
 @media only screen and (max-width: 475px) {
     .container {
         width: 327px;
