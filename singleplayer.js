@@ -1,7 +1,6 @@
 
 let user = JSON.parse(sessionStorage.getItem("user"))
 let cpu = JSON.parse(sessionStorage.getItem("computer"))
-let setTurn = true;
 
 if (user[2] == 'playerO') {
     document.getElementById('you').innerHTML = 'O (YOU)'
@@ -101,9 +100,8 @@ const clrScreen = () => boxArr.forEach((item) => {
     document.getElementById('states').style.visibility = 'hidden'
     overlay.style.visibility = 'hidden'
     item.addEventListener('mouseenter', (user) => hover(item))
-    boxArr.forEach((box) => {
-        box.style.backgroundColor = '#1F3641'
-    })
+    box.style.backgroundColor = '#1F3641'
+    box.style.backgroundImage = ''
 })
 
 const hover = (item) => {
@@ -120,6 +118,27 @@ const setHover = () => {
     getEmpty().forEach(cell => {
         cell.addEventListener('mouseenter', (user) => hover(cell))
         cell.addEventListener('mouseleave', () => cell.style.backgroundImage = '')
+    })
+}
+
+const winEffect = (caller) => {
+    const winArr = []
+    boxArr.forEach(box => {
+        if (box.classList.contains(caller[2])){
+            winArr.push(Number(box.id))
+        }
+    })
+    WIN_COMBOS.forEach(combo => {
+        if (combo.every(e => winArr.includes(e))) {
+            console.log('passed check')
+            console.log(combo)
+            combo.forEach(item => {
+                console.log(item)
+                boxArr[item].style.backgroundColor = caller[1]
+                // console.log()
+                boxArr[item].style.backgroundImage = caller[4]
+            })
+        }
     })
 }
 
@@ -141,6 +160,7 @@ function Players (){
         boxArr[play].addEventListener('mouseenter', () => boxArr[play].style.backgroundImage = '')
 
         if (checkWin(cpu[2])){
+            winEffect(cpu)
             cpuScore += 1
             document.getElementById('cpu-score').innerHTML = cpuScore.toString();
             document.getElementById('state-text').innerHTML = 'OH NO, YOU LOST...'
@@ -149,13 +169,7 @@ function Players (){
             document.getElementById('win-icon').innerHTML = cpu[0]
             document.getElementById('ttr').style.color = cpu[1]
             document.getElementById('states').style.visibility = 'visible'
-            overlay.style.visibility = 'visible'
-            boxArr.forEach((box) => {
-                if (box.classList.contains(cpu[2])) {
-                    box.style.backgroundColor = cpu[1]
-                }
-            })
-            
+            overlay.style.visibility = 'visible'            
         }
     }
     return {machine}
@@ -166,12 +180,13 @@ function cpuChoice () {
         setTimeout(() => {
             player.machine();
             resolve() 
-        }, 1800);
+        }, 900);
     })
 }
 
 const checkUserWin = () => {
     if (checkWin(user[2])){
+        winEffect(user)
         userScore += 1
         document.getElementById('player-score').innerHTML = userScore.toString();
         document.getElementById('state-text').innerHTML = 'YOU WON!'
@@ -181,17 +196,15 @@ const checkUserWin = () => {
         document.getElementById('ttr').style.color = user[1]
         document.getElementById('states').style.visibility = 'visible'
         overlay.style.visibility = 'visible'
-        boxArr.forEach((box) => {
-            if (box.classList.contains(user[2])) {
-                box.style.backgroundColor = user[1]
-                // box.style.backgroundImage.src = 'url(./starter-code/assets/icon-x-grey.svg)'
-            }
-        })
         return true
     } else {
         return false
     }
 
+}
+
+function remove (evt){
+    evt.target.style.backgroundImage = ''
 }
 
 function userChoice (evt) {
@@ -201,7 +214,7 @@ function userChoice (evt) {
     } else {
         return
     }
-    evt.target.addEventListener('mouseenter', () => evt.target.style.backgroundImage = '')
+    evt.target.addEventListener('mouseenter', remove)
     evt.target.removeEventListener('click', userChoice)
     if (checkUserWin()) {
         return

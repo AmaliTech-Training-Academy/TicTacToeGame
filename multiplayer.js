@@ -17,8 +17,6 @@ if (p1[2] == 'playerO') {
     document.getElementById('cpu').innerHTML = 'X (CPU)'
     document.getElementById('p2-rg').style.backgroundColor = p2[1]
 }
-console.log(p1[1])
-console.log(p2[1])
 
 let turnIcon = document.getElementById('turn-icon-img')
 
@@ -102,14 +100,12 @@ const tiedState = () => {
 
 //clear screen
 const clrScreen = () => boxArr.forEach((item) => {
-    try {
-        item.classList.remove(p1[2])
-        item.classList.remove(p2[2])
-        document.getElementById('states').style.visibility = 'hidden'
-        overlay.style.visibility = 'hidden'
-    } catch (error) {
-        console.log(error)
-    }
+    item.classList.remove(p1[2])
+    item.classList.remove(p2[2])
+    document.getElementById('states').style.visibility = 'hidden'
+    overlay.style.visibility = 'hidden'
+    item.style.backgroundColor = '#1F3641'
+    item.style.backgroundImage = ''
 })
 
 const hover = (item) => {
@@ -129,11 +125,27 @@ const setHover = () => {
     })
 }
 
-
-nextRound.addEventListener('click', () => {
-    clrScreen()
-    setHover()
-})
+const winEffect = (caller) => {
+    console.log('called winEffect')
+    const winArr = []
+    boxArr.forEach(box => {
+        if (box.classList.contains(caller[2])){
+            winArr.push(Number(box.id))
+        }
+    })
+    WIN_COMBOS.forEach(combo => {
+        if (combo.every(e => winArr.includes(e))) {
+            console.log('passed check')
+            console.log(combo)
+            combo.forEach(item => {
+                console.log(item)
+                boxArr[item].style.backgroundColor = caller[1]
+                // console.log()
+                boxArr[item].style.backgroundImage = caller[4]
+            })
+        }
+    })
+}
 
 // this function must check the class not the innerHTML
 const isValid = (box) => {
@@ -188,6 +200,7 @@ function action (evt) {
         evt.target.classList.add(currentPlayer[2])
         evt.target.addEventListener('mouseenter', () => evt.target.style.backgroundImage = '')
         if (checkWin(currentPlayer[2])) {
+            winEffect(currentPlayer)
             updateScore()
             statePop()
             changePlayer()
@@ -202,7 +215,32 @@ function action (evt) {
     }
 }
 
-boxArr.forEach((box) => {
+nextRound.addEventListener('click', () => {
+    small += 1
+    turn = (!turn)
+    clrScreen()
+    gameplay()
+})
+
+const gameplay = () => {
     setHover()
-    box.addEventListener('click', action);
-});
+    while (small > 0) {
+        if (turn) {
+            currentPlayer = p1
+            turnIcon.src = p1[3]
+            boxArr.forEach((box) => {
+                box.addEventListener('click', action);
+            }); 
+            small--
+        } else {
+            currentPlayer = p2
+            turnIcon.src = p2[3]
+            boxArr.forEach((box) => {
+                box.addEventListener('click', action);
+            }); 
+            small-- 
+        }
+    } 
+}
+
+gameplay()
