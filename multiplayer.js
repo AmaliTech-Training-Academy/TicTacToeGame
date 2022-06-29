@@ -12,9 +12,9 @@ if (p1[2] == "playerO") {
 }
 
 if (p1[2] == 'playerO') {
-    document.getElementById('you').innerHTML = 'O (YOU)'
+    document.getElementById('you').innerHTML = 'O (P1)'
     document.getElementById('p1-rg').style.backgroundColor = p1[1]
-    document.getElementById('cpu').innerHTML = 'X (CPU)'
+    document.getElementById('cpu').innerHTML = 'X (P2)'
     document.getElementById('p2-rg').style.backgroundColor = p2[1]
 }
 
@@ -126,7 +126,6 @@ const setHover = () => {
 }
 
 const winEffect = (caller) => {
-    console.log('called winEffect')
     const winArr = []
     boxArr.forEach(box => {
         if (box.classList.contains(caller[2])){
@@ -135,10 +134,8 @@ const winEffect = (caller) => {
     })
     WIN_COMBOS.forEach(combo => {
         if (combo.every(e => winArr.includes(e))) {
-            console.log('passed check')
-            console.log(combo)
             combo.forEach(item => {
-                console.log(item)
+                // console.log(item)
                 boxArr[item].style.backgroundColor = caller[1]
                 // console.log()
                 boxArr[item].style.backgroundImage = caller[4]

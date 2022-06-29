@@ -100,8 +100,8 @@ const clrScreen = () => boxArr.forEach((item) => {
     document.getElementById('states').style.visibility = 'hidden'
     overlay.style.visibility = 'hidden'
     item.addEventListener('mouseenter', (user) => hover(item))
-    box.style.backgroundColor = '#1F3641'
-    box.style.backgroundImage = ''
+    item.style.backgroundColor = '#1F3641'
+    item.style.backgroundImage = ''
 })
 
 const hover = (item) => {
@@ -130,10 +130,8 @@ const winEffect = (caller) => {
     })
     WIN_COMBOS.forEach(combo => {
         if (combo.every(e => winArr.includes(e))) {
-            console.log('passed check')
-            console.log(combo)
             combo.forEach(item => {
-                console.log(item)
+                // console.log(item)
                 boxArr[item].style.backgroundColor = caller[1]
                 // console.log()
                 boxArr[item].style.backgroundImage = caller[4]
