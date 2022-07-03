@@ -356,8 +356,10 @@ const gameplay = () => {
             play.addEvt()
             gamesLeft--
         } else {
-            cpuChoice().then(changeToUser)
-            play.addEvt()
+            cpuChoice().then(() => {
+                changeToUser()
+                play.addEvt()
+            })
             gamesLeft--
         }
     }    
