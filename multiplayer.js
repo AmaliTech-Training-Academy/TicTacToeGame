@@ -1,14 +1,16 @@
-// user objects loaded from storage
+// user and objects loaded from storage
 let p1 = JSON.parse(sessionStorage.getItem("user"))
 let p2 = JSON.parse(sessionStorage.getItem("computer"))
 
 // saves gameData
 let saveData;
-let arr;
+// saves classList for saveData
+let arr; 
 
 //set current player based on selected starting icon
 let currentPlayer;
 
+// sets current player based on mark chosen
 if (p1[2] == "playerO") {
     currentPlayer = p2
 } else {
@@ -23,10 +25,10 @@ if (p1[2] == 'playerO') {
     document.getElementById('p2-rg').style.backgroundColor = p2[1]
 }
 
-
 //turn icon functions
 let turnIcon = document.getElementById('turn-icon-img')
 
+//changes the turn icon based on current player
 const changeTurnIcon = () => {
     turnIcon.src = currentPlayer[3]
 }
@@ -43,7 +45,7 @@ const nextRound = document.getElementById('next-round')
 const boxArr = Array.from(document.querySelectorAll('.box'));
 
 //trackers
-let gamesLeft  = 1
+let gamesLeft = 1
 // switches turn
 let turn = p1[2] == 'playerX'
 
@@ -59,11 +61,11 @@ function saveGameState () {
         arr
     }
     sessionStorage.setItem("gameData", JSON.stringify(saveData))
-    console.log('saved game state')
+    // console.log('saved game state')
 }
 
 function restoreGameState() {
-    console.log('called restoreGamestate')
+    // console.log('called restoreGamestate')
     saveData = JSON.parse(sessionStorage.getItem("gameData"))
     console.log(saveData)
     turn = saveData.turn
@@ -72,9 +74,9 @@ function restoreGameState() {
     tiesCount = saveData.tiesCount
     p2Score = saveData.p2Score
     boxArr.forEach((box, index) => {
-
         box.classList.add(saveData.arr[index])
     })
+
     // update scores
     document.getElementById('cpu-score').innerHTML = p2Score.toString();
     document.getElementById('player-score').innerHTML = p1Score.toString();
@@ -96,8 +98,6 @@ function restoreGameState() {
     } else {
         gameplay()
     }
-
-
 }
 // save data for class list
 const classes = () => {
@@ -304,6 +304,7 @@ function action (evt) {
         }
         changePlayer();
         changeTurnIcon()
+        console.log(currentPlayer[2])
         saveGameState()
         if (boardFull()) {
             tiedState()
@@ -322,6 +323,7 @@ nextRound.addEventListener('click', () => {
 
 // game play
 const gameplay = () => {
+    console.log('gameplay called')
     setHover()
     while (gamesLeft > 0) {
         if (turn) {
@@ -341,6 +343,7 @@ const gameplay = () => {
         }
     } 
 }
+
 
 if (sessionStorage.getItem("gameData") !== null){
     restoreGameState()
